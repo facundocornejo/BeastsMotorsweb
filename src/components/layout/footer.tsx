@@ -78,7 +78,7 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 border-t border-white/10 flex items-center justify-between">
+        <div className="mt-10 pt-6 pb-16 border-t border-white/10 flex items-center justify-between">
           <p className="text-xs text-gray-400">
             © {year} Beast Motors. Todos los derechos reservados.
           </p>
