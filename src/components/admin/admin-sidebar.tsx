@@ -3,7 +3,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
-import { Menu, X, Car, PartyPopper, LogOut } from "lucide-react";
+import { Menu, X, Car, PartyPopper, LogOut, ExternalLink } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 
 const NAV_ITEMS = [
@@ -52,7 +52,14 @@ export default function AdminSidebar() {
         })}
       </nav>
 
-      <div className="p-4 border-t border-gray-200">
+      <div className="p-4 border-t border-gray-200 flex flex-col gap-1">
+        <Link
+          href="/"
+          className="flex items-center gap-2 px-3 py-2 text-sm text-dark-600 hover:bg-gray-100 rounded-[var(--radius-sm)] transition-colors"
+        >
+          <ExternalLink className="w-4 h-4" />
+          Ver sitio
+        </Link>
         <button
           onClick={handleLogout}
           className="w-full flex items-center gap-2 px-3 py-2 text-sm text-dark-600 hover:bg-gray-100 rounded-[var(--radius-sm)] transition-colors text-left"
