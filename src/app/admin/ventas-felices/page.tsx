@@ -1,6 +1,8 @@
 "use client";
 
 import { useState, useEffect, useCallback } from "react";
+import Link from "next/link";
+import { ArrowLeft } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import type { HappySale, VehicleImage } from "@/types";
 import Button from "@/components/ui/button";
@@ -72,8 +74,15 @@ export default function AdminHappySalesPage() {
 
   return (
     <div>
+      <Link
+        href="/admin/vehiculos"
+        className="inline-flex items-center gap-1.5 text-sm text-dark-600 hover:text-dark-900 mb-4 transition-colors"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Volver
+      </Link>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-dark-900">Ventas Felices</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-dark-900">Ventas Felices</h1>
         <Button onClick={() => setShowForm(!showForm)}>
           {showForm ? "Cancelar" : "+ Nueva venta feliz"}
         </Button>
@@ -81,7 +90,7 @@ export default function AdminHappySalesPage() {
 
       {/* Inline create form */}
       {showForm && (
-        <div className="bg-white rounded-[var(--radius)] p-6 shadow-sm mb-6">
+        <div className="bg-white rounded-[var(--radius)] p-4 sm:p-6 shadow-sm mb-6">
           <div className="flex flex-col gap-4">
             <Input
               label="Título del vehículo vendido"

@@ -102,7 +102,7 @@ export default function AdminVehiclesPage() {
   return (
     <div>
       <div className="flex items-center justify-between mb-6">
-        <h1 className="text-2xl font-bold text-dark-900">Vehículos</h1>
+        <h1 className="text-xl sm:text-2xl font-bold text-dark-900">Vehículos</h1>
         <Link href="/admin/vehiculos/nuevo">
           <Button>+ Nuevo vehículo</Button>
         </Link>
@@ -138,21 +138,21 @@ export default function AdminVehiclesPage() {
             return (
               <div
                 key={vehicle.id}
-                className="bg-white rounded-[var(--radius)] p-4 shadow-sm flex gap-4 items-center"
+                className="bg-white rounded-[var(--radius)] p-3 sm:p-4 shadow-sm flex flex-col sm:flex-row gap-3 sm:gap-4 sm:items-center"
               >
-                {/* Thumbnail */}
-                <div className="w-20 h-15 rounded-[var(--radius-sm)] overflow-hidden bg-gray-100 shrink-0">
-                  {thumb ? (
-                    <img src={thumb} alt={title} className="w-full h-full object-cover" />
-                  ) : (
-                    <div className="w-full h-full flex items-center justify-center text-gray-300 text-xs">
-                      Sin foto
-                    </div>
-                  )}
-                </div>
+                {/* Top row: thumbnail + info */}
+                <div className="flex gap-3 sm:gap-4 items-center flex-1 min-w-0">
+                  <div className="w-20 h-15 rounded-[var(--radius-sm)] overflow-hidden bg-gray-100 shrink-0">
+                    {thumb ? (
+                      <img src={thumb} alt={title} className="w-full h-full object-cover" />
+                    ) : (
+                      <div className="w-full h-full flex items-center justify-center text-gray-300 text-xs">
+                        Sin foto
+                      </div>
+                    )}
+                  </div>
 
-                {/* Info */}
-                <div className="flex-1 min-w-0">
+                  <div className="flex-1 min-w-0">
                   <p className="font-medium text-dark-900 truncate">{title}</p>
                   <p className="text-sm text-dark-600">{formatPrice(vehicle.price_usd)}</p>
                   <div className="flex gap-1.5 mt-1 flex-wrap">
@@ -162,9 +162,10 @@ export default function AdminVehiclesPage() {
                     <Badge>{vehicle.vehicle_type}</Badge>
                   </div>
                 </div>
+                </div>
 
                 {/* Actions */}
-                <div className="flex gap-2 shrink-0 flex-wrap justify-end">
+                <div className="flex gap-2 shrink-0 flex-wrap justify-end w-full sm:w-auto">
                   <Link href={`/admin/vehiculos/${vehicle.id}`}>
                     <Button variant="ghost" size="sm">Editar</Button>
                   </Link>
