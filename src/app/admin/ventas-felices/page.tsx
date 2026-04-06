@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import Link from "next/link";
-import { ArrowLeft } from "lucide-react";
+import { ArrowLeft, Pencil } from "lucide-react";
 import { createClient } from "@/lib/supabase/client";
 import type { HappySale, VehicleImage } from "@/types";
 import Button from "@/components/ui/button";
@@ -20,6 +20,12 @@ export default function AdminHappySalesPage() {
   const [newTitle, setNewTitle] = useState("");
   const [newImages, setNewImages] = useState<VehicleImage[]>([]);
   const [saving, setSaving] = useState(false);
+
+  // Edit
+  const [editId, setEditId] = useState<string | null>(null);
+  const [editTitle, setEditTitle] = useState("");
+  const [editImages, setEditImages] = useState<VehicleImage[]>([]);
+  const [editSaving, setEditSaving] = useState(false);
 
   // Delete
   const [deleteTarget, setDeleteTarget] = useState<HappySale | null>(null);
@@ -62,6 +68,43 @@ export default function AdminHappySalesPage() {
     setSaving(false);
   }
 
+  function startEdit(sale: HappySale) {
+    setEditId(sale.id);
+    setEditTitle(sale.vehicle_title);
+    setEditImages(
+      sale.images.map((img, i) => ({ ...img, order: i }))
+    );
+    // Close create form if open
+    setShowForm(false);
+  }
+
+  function cancelEdit() {
+    setEditId(null);
+    setEditTitle("");
+    setEditImages([]);
+  }
+
+  async function handleEdit() {
+    if (!editId || !editTitle.trim()) return;
+    setEditSaving(true);
+
+    const res = await fetch(`/api/ventas-felices/${editId}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        vehicle_title: editTitle,
+        images: editImages,
+      }),
+    });
+
+    if (res.ok) {
+      const updated = await res.json();
+      setSales((prev) => prev.map((s) => (s.id === editId ? updated : s)));
+      cancelEdit();
+    }
+    setEditSaving(false);
+  }
+
   async function handleDelete() {
     if (!deleteTarget) return;
     setDeleteLoading(true);
@@ -83,7 +126,7 @@ export default function AdminHappySalesPage() {
       </Link>
       <div className="flex items-center justify-between mb-6">
         <h1 className="text-xl sm:text-2xl font-bold text-dark-900">Ventas Felices</h1>
-        <Button onClick={() => setShowForm(!showForm)}>
+        <Button onClick={() => { setShowForm(!showForm); cancelEdit(); }}>
           {showForm ? "Cancelar" : "+ Nueva venta feliz"}
         </Button>
       </div>
@@ -126,28 +169,68 @@ export default function AdminHappySalesPage() {
               key={sale.id}
               className="bg-white rounded-[var(--radius)] shadow-sm overflow-hidden"
             >
-              {sale.images[0] && (
-                <img
-                  src={sale.images[0].url}
-                  alt={sale.vehicle_title}
-                  className="w-full h-40 object-cover"
-                />
-              )}
-              <div className="p-4">
-                <p className="font-medium text-dark-900 text-sm">{sale.vehicle_title}</p>
-                <p className="text-xs text-gray-400 mt-1">
-                  {new Date(sale.created_at).toLocaleDateString("es-AR")}
-                </p>
-                <div className="mt-3 flex justify-end">
-                  <Button
-                    variant="danger"
-                    size="sm"
-                    onClick={() => setDeleteTarget(sale)}
-                  >
-                    Eliminar
-                  </Button>
+              {/* Edit mode */}
+              {editId === sale.id ? (
+                <div className="p-4 flex flex-col gap-4">
+                  <Input
+                    label="Título del vehículo"
+                    value={editTitle}
+                    onChange={(e) => setEditTitle(e.target.value)}
+                  />
+                  <ImageUploader
+                    images={editImages}
+                    onChange={setEditImages}
+                    folder="happy-sales"
+                    maxImages={3}
+                  />
+                  <div className="flex gap-2 justify-end">
+                    <Button variant="secondary" size="sm" onClick={cancelEdit}>
+                      Cancelar
+                    </Button>
+                    <Button
+                      size="sm"
+                      onClick={handleEdit}
+                      loading={editSaving}
+                      disabled={!editTitle.trim()}
+                    >
+                      Guardar
+                    </Button>
+                  </div>
                 </div>
-              </div>
+              ) : (
+                <>
+                  {sale.images[0] && (
+                    <img
+                      src={sale.images[0].url}
+                      alt={sale.vehicle_title}
+                      className="w-full h-40 object-cover"
+                    />
+                  )}
+                  <div className="p-4">
+                    <p className="font-medium text-dark-900 text-sm">{sale.vehicle_title}</p>
+                    <p className="text-xs text-gray-400 mt-1">
+                      {new Date(sale.created_at).toLocaleDateString("es-AR")}
+                    </p>
+                    <div className="mt-3 flex gap-2 justify-end">
+                      <Button
+                        variant="secondary"
+                        size="sm"
+                        onClick={() => startEdit(sale)}
+                      >
+                        <Pencil className="w-3.5 h-3.5 mr-1" />
+                        Editar
+                      </Button>
+                      <Button
+                        variant="danger"
+                        size="sm"
+                        onClick={() => setDeleteTarget(sale)}
+                      >
+                        Eliminar
+                      </Button>
+                    </div>
+                  </div>
+                </>
+              )}
             </div>
           ))}
         </div>

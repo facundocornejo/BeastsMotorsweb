@@ -7,7 +7,7 @@ export default function AboutSection() {
     <section className="py-12 md:py-16 bg-cream-soft">
       <div className="max-w-7xl mx-auto px-4">
         <div className="md:flex gap-8">
-          <div className="flex-1 mb-6 md:mb-0">
+          <div className="flex-1 mb-6 md:mb-0 text-center md:text-left">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
               Sobre Beast Motors
             </h2>

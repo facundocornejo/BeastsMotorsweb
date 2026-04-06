@@ -37,11 +37,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es">
+    <html lang="es" suppressHydrationWarning>
       <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var t=localStorage.getItem('beast-theme')||'dark';document.documentElement.setAttribute('data-theme',t)})();`,
+          }}
+        />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
-        <meta name="theme-color" content="#03588C" />
+        <meta name="theme-color" content="#11789B" />
       </head>
       <body
         className={`${jakarta.variable} ${fraunces.variable} font-sans antialiased`}

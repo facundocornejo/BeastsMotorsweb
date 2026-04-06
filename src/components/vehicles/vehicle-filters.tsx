@@ -61,7 +61,7 @@ export default function VehicleFilters({
               className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
                 !currentType
                   ? "bg-blue-deep text-white"
-                  : "bg-gray-100 text-dark-600 hover:bg-gray-200"
+                  : "bg-cream text-dark-800 hover:bg-gray-300"
               }`}
             >
               Todos
@@ -73,7 +73,7 @@ export default function VehicleFilters({
                 className={`px-3 py-1.5 text-xs font-medium rounded-full transition-colors ${
                   currentType === t.value
                     ? "bg-blue-deep text-white"
-                    : "bg-gray-100 text-dark-600 hover:bg-gray-200"
+                    : "bg-cream text-dark-800 hover:bg-gray-300"
                 }`}
               >
                 {t.label}
@@ -91,7 +91,7 @@ export default function VehicleFilters({
         <select
           value={currentBrand}
           onChange={(e) => updateParams("brand", e.target.value)}
-          className="w-full px-3 py-2 text-sm rounded-[var(--radius-sm)] border border-gray-200 bg-white"
+          className="w-full px-3 py-2 text-sm rounded-[var(--radius-sm)] border border-gray-300 bg-cream-soft text-dark-900"
         >
           <option value="">Todas las marcas</option>
           {POPULAR_BRANDS.map((b) => (
@@ -110,7 +110,7 @@ export default function VehicleFilters({
         <select
           value={currentSort}
           onChange={(e) => updateParams("sort", e.target.value)}
-          className="w-full px-3 py-2 text-sm rounded-[var(--radius-sm)] border border-gray-200 bg-white"
+          className="w-full px-3 py-2 text-sm rounded-[var(--radius-sm)] border border-gray-300 bg-cream-soft text-dark-900"
         >
           {SORT_OPTIONS.map((opt) => (
             <option key={opt.value} value={opt.value}>
@@ -149,7 +149,7 @@ export default function VehicleFilters({
       {mobileOpen && (
         <>
           <div className="fixed inset-0 bg-black/50 z-40 md:hidden" onClick={() => setMobileOpen(false)} />
-          <div className="fixed bottom-0 left-0 right-0 bg-white z-50 rounded-t-2xl p-6 max-h-[70vh] overflow-y-auto md:hidden">
+          <div className="fixed bottom-0 left-0 right-0 bg-cream-soft z-50 rounded-t-2xl p-6 max-h-[70vh] overflow-y-auto md:hidden">
             <div className="flex items-center justify-between mb-4">
               <h3 className="font-semibold text-dark-900">Filtros</h3>
               <button onClick={() => setMobileOpen(false)} className="text-dark-600">✕</button>

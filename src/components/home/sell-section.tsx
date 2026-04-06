@@ -5,7 +5,7 @@ export default function SellSection() {
     <section className="py-12 md:py-16 bg-cream-soft">
       <div className="max-w-7xl mx-auto px-4">
         <div className="md:flex items-start gap-12">
-          <div className="flex-1 mb-6 md:mb-0">
+          <div className="flex-1 mb-6 md:mb-0 text-center md:text-left">
             <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
               ¿Querés vender tu auto?
             </h2>
@@ -15,7 +15,7 @@ export default function SellSection() {
               con una tasación sin compromiso.
             </p>
           </div>
-          <div className="shrink-0">
+          <div className="shrink-0 flex justify-center md:justify-start">
             <SellForm />
           </div>
         </div>

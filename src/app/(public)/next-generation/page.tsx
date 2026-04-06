@@ -40,7 +40,7 @@ export default async function NextGenerationPage() {
         <h1 className="font-display text-3xl md:text-5xl font-bold text-dark-900 mb-4">
           Next Generation
         </h1>
-        <p className="text-dark-600 max-w-2xl mx-auto mb-6">
+        <p className="text-dark-700 max-w-2xl mx-auto mb-6">
           Descubrí la nueva generación de vehículos importados. Haval, Chery,
           JAC, GWM y más marcas con la mejor relación precio-calidad del
           mercado.

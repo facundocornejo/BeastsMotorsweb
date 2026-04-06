@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef } from "react";
-import { Loader2 } from "lucide-react";
+import { Loader2, ChevronLeft, ChevronRight } from "lucide-react";
 import type { VehicleImage } from "@/types";
 
 interface ImageUploaderProps {
@@ -88,6 +88,22 @@ export default function ImageUploader({
     }).catch(() => {});
   }
 
+  function handleSetCover(index: number) {
+    if (index === 0) return;
+    const updated = [...images];
+    const [selected] = updated.splice(index, 1);
+    updated.unshift(selected);
+    onChange(updated.map((img, i) => ({ ...img, order: i })));
+  }
+
+  function handleMove(index: number, direction: -1 | 1) {
+    const newIndex = index + direction;
+    if (newIndex < 0 || newIndex >= images.length) return;
+    const updated = [...images];
+    [updated[index], updated[newIndex]] = [updated[newIndex], updated[index]];
+    onChange(updated.map((img, i) => ({ ...img, order: i })));
+  }
+
   function handleDragStart(index: number) {
     setDragIndex(index);
   }
@@ -169,10 +185,18 @@ export default function ImageUploader({
               alt={`Foto ${index + 1}`}
               className="w-full h-full object-cover"
             />
-            {index === 0 && (
+            {index === 0 ? (
               <span className="absolute top-1 left-1 bg-blue-deep text-white text-[10px] font-semibold px-1.5 py-0.5 rounded">
                 Portada
               </span>
+            ) : (
+              <button
+                type="button"
+                onClick={() => handleSetCover(index)}
+                className="absolute top-1 left-1 bg-black/50 hover:bg-blue-deep text-white text-[10px] font-semibold px-1.5 py-0.5 rounded sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
+              >
+                Portada
+              </button>
             )}
             <button
               type="button"
@@ -181,6 +205,27 @@ export default function ImageUploader({
             >
               ×
             </button>
+            {/* Move arrows */}
+            {images.length > 1 && (
+              <div className="absolute bottom-1 left-1 right-1 flex justify-between sm:opacity-0 sm:group-hover:opacity-100 transition-opacity">
+                <button
+                  type="button"
+                  onClick={() => handleMove(index, -1)}
+                  disabled={index === 0}
+                  className="w-6 h-6 bg-black/50 text-white rounded-full flex items-center justify-center disabled:opacity-30"
+                >
+                  <ChevronLeft className="w-4 h-4" />
+                </button>
+                <button
+                  type="button"
+                  onClick={() => handleMove(index, 1)}
+                  disabled={index === images.length - 1}
+                  className="w-6 h-6 bg-black/50 text-white rounded-full flex items-center justify-center disabled:opacity-30"
+                >
+                  <ChevronRight className="w-4 h-4" />
+                </button>
+              </div>
+            )}
           </div>
         ))}
 

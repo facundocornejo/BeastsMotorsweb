@@ -63,7 +63,7 @@ export default async function MotosPage({ searchParams }: MotosPageProps) {
           <h1 className="font-display text-3xl md:text-5xl font-bold text-dark-900 mb-4">
             Motos
           </h1>
-          <p className="text-dark-600 max-w-2xl mx-auto mb-6">
+          <p className="text-dark-700 max-w-2xl mx-auto mb-6">
             Motos usadas y 0km seleccionadas, revisadas y listas para rodar.
             Encontrá la moto que buscás con el respaldo de Beast Motors.
           </p>
@@ -80,7 +80,7 @@ export default async function MotosPage({ searchParams }: MotosPageProps) {
 
         {/* Filters + Grid */}
         <section className="pb-12 md:pb-16">
-          <p className="text-sm text-dark-600 mb-4">
+          <p className="text-sm text-dark-700 mb-4">
             {vehicles.length} moto{vehicles.length !== 1 ? "s" : ""} disponible
             {vehicles.length !== 1 ? "s" : ""}
           </p>

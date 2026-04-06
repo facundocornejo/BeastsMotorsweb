@@ -79,7 +79,7 @@ export default function PlanesPage() {
             <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
               Financiamos tu compra
             </h2>
-            <p className="text-dark-600 max-w-2xl mx-auto">
+            <p className="text-dark-700 max-w-2xl mx-auto">
               Trabajamos con distintas entidades financieras para ofrecerte
               créditos prendarios y financiación directa. Vos elegís el
               vehículo, nosotros te ayudamos con el resto.
@@ -90,13 +90,13 @@ export default function PlanesPage() {
             {FINANCE_BENEFITS.map((benefit) => (
               <div
                 key={benefit.title}
-                className="bg-white rounded-[var(--radius)] p-6 shadow-sm border border-gray-200 text-center"
+                className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border border-gray-300 text-center"
               >
-                <benefit.icon className="w-8 h-8 text-blue-deep mb-3" strokeWidth={1.5} />
-                <h3 className="font-semibold text-dark-900 text-lg mb-2">
+                <benefit.icon className="w-8 h-8 text-blue-light mb-3" strokeWidth={1.5} />
+                <h3 className="font-semibold text-blue-light text-lg mb-2">
                   {benefit.title}
                 </h3>
-                <p className="text-sm text-dark-600 leading-relaxed">
+                <p className="text-sm text-dark-800 leading-relaxed">
                   {benefit.description}
                 </p>
               </div>
@@ -104,10 +104,10 @@ export default function PlanesPage() {
           </div>
 
           <div className="mt-10 bg-cream-soft rounded-[var(--radius)] p-6 md:p-8">
-            <h3 className="font-semibold text-dark-900 mb-3">
+            <h3 className="font-semibold text-blue-light mb-3">
               ¿Cómo funciona la financiación?
             </h3>
-            <div className="text-sm text-dark-600 leading-relaxed space-y-2">
+            <div className="text-sm text-dark-800 leading-relaxed space-y-2">
               <p>
                 Podés financiar vehículos usados y 0km a través de créditos
                 prendarios con bancos y entidades financieras. El vehículo
@@ -131,7 +131,7 @@ export default function PlanesPage() {
             <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
               Planes de Ahorro
             </h2>
-            <p className="text-dark-600 max-w-2xl mx-auto">
+            <p className="text-dark-700 max-w-2xl mx-auto">
               Una alternativa para llegar a tu 0km ahorrando mes a mes.
               Los planes de ahorro te permiten acceder a vehículos nuevos
               con cuotas accesibles y la posibilidad de ser adjudicado
@@ -144,49 +144,49 @@ export default function PlanesPage() {
             {AHORRO_STEPS.map((item) => (
               <div
                 key={item.step}
-                className="bg-white rounded-[var(--radius)] p-6 shadow-sm relative"
+                className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border border-gray-300 relative"
               >
-                <span className="font-display text-4xl font-bold text-blue-deep/15 absolute top-4 right-4">
+                <span className="font-display text-4xl font-bold text-blue-light/15 absolute top-4 right-4">
                   {item.step}
                 </span>
-                <h3 className="font-semibold text-dark-900 text-lg mb-2">
+                <h3 className="font-semibold text-blue-light text-lg mb-2">
                   {item.title}
                 </h3>
-                <p className="text-sm text-dark-600 leading-relaxed">
+                <p className="text-sm text-dark-800 leading-relaxed">
                   {item.description}
                 </p>
               </div>
             ))}
           </div>
 
-          <div className="bg-white rounded-[var(--radius)] p-6 md:p-8 shadow-sm">
-            <h3 className="font-semibold text-dark-900 mb-3">
+          <div className="bg-cream-soft rounded-[var(--radius)] p-6 md:p-8 shadow-sm border border-gray-300">
+            <h3 className="font-semibold text-blue-light mb-3">
               ¿Por qué elegir un plan de ahorro?
             </h3>
-            <ul className="text-sm text-dark-600 leading-relaxed space-y-2">
+            <ul className="text-sm text-dark-800 leading-relaxed space-y-2">
               <li className="flex gap-2">
-                <span className="text-blue-deep font-bold">•</span>
+                <span className="text-blue-light font-bold">•</span>
                 <span>
                   Sin requisitos de ingreso mínimo: cualquiera puede
                   suscribirse a un plan.
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="text-blue-deep font-bold">•</span>
+                <span className="text-blue-light font-bold">•</span>
                 <span>
                   Cuotas mensuales que se adaptan al valor del vehículo
                   elegido.
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="text-blue-deep font-bold">•</span>
+                <span className="text-blue-light font-bold">•</span>
                 <span>
                   Posibilidad de licitar para adelantar la entrega de tu
                   vehículo.
                 </span>
               </li>
               <li className="flex gap-2">
-                <span className="text-blue-deep font-bold">•</span>
+                <span className="text-blue-light font-bold">•</span>
                 <span>
                   Trabajamos con planes de distintas terminales automotrices.
                 </span>
@@ -202,7 +202,7 @@ export default function PlanesPage() {
           <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
             ¿Querés saber más?
           </h2>
-          <p className="text-dark-600 mb-6">
+          <p className="text-dark-700 mb-6">
             Contactanos por WhatsApp y te asesoramos sobre la mejor opción
             de financiación o plan de ahorro para vos.
           </p>

@@ -34,23 +34,23 @@ export default function NosotrosPage() {
             ser publicado, para que tomes decisiones con confianza.
           </p>
           <p>Contamos con una estructura que respalda cada operación:</p>
-          <ul className="list-disc pl-5 space-y-2 text-dark-600">
+          <ul className="list-disc pl-5 space-y-2 text-dark-700">
             <li>
-              <strong>Respaldo legal:</strong> la empresa está dirigida por un
+              <strong className="text-blue-light">Respaldo legal:</strong> la empresa está dirigida por un
               profesional del derecho, lo que garantiza operaciones correctamente
               documentadas y seguras.
             </li>
             <li>
-              <strong>Gestoría automotor propia:</strong> gestionamos
+              <strong className="text-blue-light">Gestoría automotor propia:</strong> gestionamos
               internamente transferencias y trámites, agilizando los procesos y
               evitando intermediarios.
             </li>
             <li>
-              <strong>Transparencia y control:</strong> verificamos
+              <strong className="text-blue-light">Transparencia y control:</strong> verificamos
               documentación, historial y condiciones de cada unidad.
             </li>
             <li>
-              <strong>Atención personalizada:</strong> acompañamos a cada
+              <strong className="text-blue-light">Atención personalizada:</strong> acompañamos a cada
               cliente durante todo el proceso de compra.
             </li>
           </ul>
@@ -68,9 +68,9 @@ export default function NosotrosPage() {
 
       {/* Info cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white rounded-[var(--radius)] p-6 shadow-sm">
-          <h3 className="font-semibold text-dark-900 mb-3">Horarios</h3>
-          <div className="text-sm text-dark-600 space-y-1">
+        <div className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border border-gray-300">
+          <h3 className="font-semibold text-blue-light text-lg mb-3">Horarios</h3>
+          <div className="text-sm text-dark-800 space-y-1">
             <p>Lunes a Viernes: 8:00 - 14:00</p>
             <p>Sábados y Domingos: Cerrado</p>
           </div>
@@ -78,7 +78,7 @@ export default function NosotrosPage() {
             <p className="text-sm text-dark-900 font-medium mb-1">
               ¿No podés en este horario?
             </p>
-            <p className="text-xs text-dark-600 mb-2">
+            <p className="text-xs text-dark-800 mb-2">
               Agendá una cita previa y te atendemos en el horario que necesites.
             </p>
             <a
@@ -93,9 +93,9 @@ export default function NosotrosPage() {
           </div>
         </div>
 
-        <div className="bg-white rounded-[var(--radius)] p-6 shadow-sm">
-          <h3 className="font-semibold text-dark-900 mb-3">Ubicación</h3>
-          <div className="text-sm text-dark-600 space-y-1">
+        <div className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border border-gray-300">
+          <h3 className="font-semibold text-blue-light text-lg mb-3">Ubicación</h3>
+          <div className="text-sm text-dark-800 space-y-1">
             <p>Av. Circunvalación José Hernández 2718</p>
             <p>E3100 Paraná, Entre Ríos</p>
           </div>

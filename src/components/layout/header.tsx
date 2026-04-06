@@ -3,6 +3,7 @@ import Image from "next/image";
 import { Instagram } from "lucide-react";
 import { buildGeneralWhatsAppLink } from "@/lib/utils/whatsapp";
 import MobileMenu from "./mobile-menu";
+import ThemeToggle from "@/components/ui/theme-toggle";
 
 const NAV_LINKS = [
   { href: "/", label: "Inicio" },
@@ -18,7 +19,7 @@ export default function Header() {
   const waLink = buildGeneralWhatsAppLink();
 
   return (
-    <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
+    <header className="sticky top-0 z-50 bg-rose border-b border-rose-dark">
       <div className="max-w-7xl mx-auto px-4 h-16 flex items-center justify-between">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
@@ -30,7 +31,7 @@ export default function Header() {
             className="h-10 w-auto"
             priority
           />
-          <span className="font-display text-xl font-bold text-blue-deep">
+          <span className="font-display text-xl font-bold text-white">
             Beast Motors
           </span>
         </Link>
@@ -41,7 +42,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-dark-600 hover:text-blue-deep transition-colors"
+              className="text-sm font-medium text-white/80 hover:text-white transition-colors"
             >
               {link.label}
             </Link>
@@ -50,11 +51,12 @@ export default function Header() {
 
         {/* Social + WhatsApp CTA (desktop) */}
         <div className="hidden md:flex items-center gap-3">
+          <ThemeToggle />
           <a
             href="https://www.instagram.com/beastmotors.oficial/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-dark-600 hover:text-blue-deep transition-colors"
+            className="text-white/80 hover:text-white transition-colors"
             aria-label="Instagram de Beast Motors"
           >
             <Instagram className="w-5 h-5" aria-hidden="true" />
@@ -63,7 +65,7 @@ export default function Header() {
             href={waLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 bg-blue-deep text-white text-sm font-medium px-4 py-2 rounded-[var(--radius-sm)] hover:bg-blue-mid transition-colors"
+            className="inline-flex items-center gap-2 bg-white text-rose text-sm font-semibold px-4 py-2 rounded-[var(--radius-sm)] hover:bg-white/90 transition-colors"
           >
             <span className="w-2 h-2 rounded-full bg-green-wa" />
             Consultanos

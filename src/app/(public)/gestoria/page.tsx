@@ -102,7 +102,7 @@ export default function GestoriaPage() {
             <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
               Nuestros servicios
             </h2>
-            <p className="text-dark-600 max-w-2xl mx-auto">
+            <p className="text-dark-700 max-w-2xl mx-auto">
               Nos encargamos de toda la gestión registral de tu vehículo.
               Desde transferencias hasta informes de dominio, todo resuelto
               de forma profesional y transparente.
@@ -113,13 +113,13 @@ export default function GestoriaPage() {
             {SERVICES.map((service) => (
               <div
                 key={service.title}
-                className="bg-white rounded-[var(--radius)] p-6 shadow-sm border border-gray-200"
+                className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border border-gray-300"
               >
-                <service.icon className="w-8 h-8 text-blue-deep mb-3" strokeWidth={1.5} />
-                <h3 className="font-semibold text-dark-900 mb-2">
+                <service.icon className="w-8 h-8 text-blue-light mb-3" strokeWidth={1.5} />
+                <h3 className="font-semibold text-blue-light mb-2">
                   {service.title}
                 </h3>
-                <p className="text-sm text-dark-600 leading-relaxed">
+                <p className="text-sm text-dark-800 leading-relaxed">
                   {service.description}
                 </p>
               </div>
@@ -139,12 +139,12 @@ export default function GestoriaPage() {
             {ADVANTAGES.map((adv) => (
               <div
                 key={adv.title}
-                className="bg-white rounded-[var(--radius)] p-6 shadow-sm border-l-4 border-blue-deep"
+                className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border-l-4 border-blue-light"
               >
-                <h3 className="font-semibold text-dark-900 mb-1">
+                <h3 className="font-semibold text-blue-light mb-1">
                   {adv.title}
                 </h3>
-                <p className="text-sm text-dark-600 leading-relaxed">
+                <p className="text-sm text-dark-800 leading-relaxed">
                   {adv.description}
                 </p>
               </div>
@@ -159,7 +159,7 @@ export default function GestoriaPage() {
           <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
             ¿Necesitás gestionar un trámite?
           </h2>
-          <p className="text-dark-600 mb-6">
+          <p className="text-dark-700 mb-6">
             Escribinos por WhatsApp y te asesoramos sobre el trámite que
             necesitás. Atendemos consultas de clientes y no clientes.
           </p>

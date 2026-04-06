@@ -54,7 +54,7 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
       <h1 className="font-display text-3xl font-bold text-dark-900 mb-2">
         Vehículos
       </h1>
-      <p className="text-sm text-dark-600 mb-6">
+      <p className="text-sm text-dark-700 mb-6">
         {vehicles.length} vehículo{vehicles.length !== 1 ? "s" : ""} disponible
         {vehicles.length !== 1 ? "s" : ""}
       </p>
