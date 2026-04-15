@@ -57,8 +57,9 @@
   --color-green-wa: var(--green-wa);
 
   /* Fonts */
-  --font-sans: var(--font-jakarta);
-  --font-display: var(--font-fraunces);
+  --font-sans: var(--font-geist-sans);
+  --font-display: var(--font-anton);
+  --font-mono: var(--font-geist-mono);
 
   /* Border Radius */
   --radius-DEFAULT: var(--radius);

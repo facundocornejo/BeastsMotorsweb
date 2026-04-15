@@ -84,7 +84,7 @@ export default function VehicleCard({ vehicle, priority = false }: VehicleCardPr
           </h3>
         </Link>
 
-        <p className="font-display text-lg font-bold text-blue-deep mb-2">
+        <p className="font-display text-lg text-blue-deep mb-2">
           {price}
         </p>
 

@@ -26,11 +26,11 @@ export default function VehicleInfo({ vehicle }: VehicleInfoProps) {
 
   return (
     <div>
-      <h1 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-2">
+      <h1 className="font-display text-2xl md:text-3xl text-dark-900 mb-2">
         {title}
       </h1>
 
-      <p className="font-display text-3xl md:text-4xl font-bold text-blue-deep mb-6">
+      <p className="font-display text-3xl md:text-4xl text-blue-deep mb-6">
         {formatPrice(vehicle.price_usd)}
       </p>
 

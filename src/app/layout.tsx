@@ -1,15 +1,12 @@
 import type { Metadata } from "next";
-import { Plus_Jakarta_Sans, Fraunces } from "next/font/google";
+import { Anton } from "next/font/google";
+import { GeistSans } from "geist/font/sans";
+import { GeistMono } from "geist/font/mono";
 import "./globals.css";
 
-const jakarta = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const fraunces = Fraunces({
-  variable: "--font-fraunces",
+const anton = Anton({
+  variable: "--font-anton",
+  weight: "400",
   subsets: ["latin"],
   display: "swap",
 });
@@ -49,7 +46,7 @@ export default function RootLayout({
         <meta name="theme-color" content="#11789B" />
       </head>
       <body
-        className={`${jakarta.variable} ${fraunces.variable} font-sans antialiased`}
+        className={`${GeistSans.variable} ${GeistMono.variable} ${anton.variable} font-sans antialiased`}
       >
         {children}
       </body>

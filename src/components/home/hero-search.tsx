@@ -27,7 +27,7 @@ export default function HeroSearch() {
         value={query}
         onChange={(e) => setQuery(e.target.value)}
         placeholder="Buscar marca, modelo..."
-        className="flex-1 px-4 py-3 rounded-l-[var(--radius)] text-sm text-dark-900 bg-white placeholder:text-gray-400 focus:outline-none"
+        className="flex-1 px-4 py-3 rounded-l-[var(--radius)] text-sm text-dark-900 bg-cream-soft placeholder:text-gray-400 focus:outline-none"
       />
       <button
         type="submit"

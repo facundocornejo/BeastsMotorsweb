@@ -51,7 +51,7 @@ export default async function CatalogPage({ searchParams }: CatalogPageProps) {
         />
       )}
     <div className="max-w-7xl mx-auto px-4 py-8">
-      <h1 className="font-display text-3xl font-bold text-dark-900 mb-2">
+      <h1 className="font-display text-3xl text-dark-900 mb-2">
         Vehículos
       </h1>
       <p className="text-sm text-dark-700 mb-6">

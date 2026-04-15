@@ -12,7 +12,7 @@ export default function Footer() {
           {/* Brand */}
           <div>
             <Image
-              src="/logobesatstmotor.png"
+              src="/logotransparente.png"
               alt="Beast Motors"
               width={160}
               height={55}
@@ -30,25 +30,25 @@ export default function Footer() {
               Navegación
             </h4>
             <nav className="flex flex-col gap-2">
-              <Link href="/" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Inicio
               </Link>
-              <Link href="/vehiculos" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/vehiculos" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Vehículos
               </Link>
-              <Link href="/motos" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/motos" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Motos
               </Link>
-              <Link href="/next-generation" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/next-generation" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Next Generation
               </Link>
-              <Link href="/planes" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/planes" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Planes
               </Link>
-              <Link href="/gestoria" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/gestoria" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Gestoría
               </Link>
-              <Link href="/nosotros" className="text-sm text-gray-300 hover:text-white transition-colors">
+              <Link href="/nosotros" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Nosotros
               </Link>
             </nav>
@@ -69,7 +69,7 @@ export default function Footer() {
               href="https://www.instagram.com/beastmotors.oficial/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-white transition-colors mt-3"
+              className="inline-flex items-center gap-2 text-sm text-gray-300 hover:text-rose transition-colors mt-3"
               aria-label="Instagram de Beast Motors"
             >
               <Instagram className="w-4 h-4" aria-hidden="true" />

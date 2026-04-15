@@ -37,7 +37,7 @@ export default async function NextGenerationPage() {
         <p className="text-sm font-semibold uppercase tracking-widest text-rose mb-2">
           Beast Motors
         </p>
-        <h1 className="font-display text-3xl md:text-5xl font-bold text-dark-900 mb-4">
+        <h1 className="font-display text-3xl md:text-5xl text-dark-900 mb-4">
           Next Generation
         </h1>
         <p className="text-dark-700 max-w-2xl mx-auto mb-6">

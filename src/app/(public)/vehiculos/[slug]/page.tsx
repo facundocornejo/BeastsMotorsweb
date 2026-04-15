@@ -59,7 +59,7 @@ export default async function VehicleDetailPage({
         {/* Related vehicles */}
         {related.length > 0 && (
           <div className="mt-12">
-            <h2 className="font-display text-2xl font-bold text-dark-900 mb-6">
+            <h2 className="font-display text-2xl text-dark-900 mb-6">
               También te puede interesar
             </h2>
             <VehicleGrid vehicles={related} />

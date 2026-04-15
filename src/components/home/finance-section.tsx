@@ -6,7 +6,7 @@ export default function FinanceSection() {
     <section className="py-12 md:py-16">
       <div className="max-w-7xl mx-auto px-4">
         <div className="bg-cream rounded-[var(--radius)] p-8 md:p-12 text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
+          <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-3">
             Financiamos tu compra
           </h2>
           <p className="text-dark-600 max-w-xl mx-auto mb-6">
