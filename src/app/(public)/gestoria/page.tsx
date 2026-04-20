@@ -139,12 +139,12 @@ export default function GestoriaPage() {
             {ADVANTAGES.map((adv) => (
               <div
                 key={adv.title}
-                className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border-l-4 border-blue-light"
+                className="bg-[var(--white)] rounded-[var(--radius)] p-6 shadow-sm border border-gray-200 border-l-4 border-l-blue-light"
               >
-                <h3 className="font-semibold text-blue-light mb-1">
+                <h3 className="font-bold text-base text-blue-light mb-1">
                   {adv.title}
                 </h3>
-                <p className="text-sm text-dark-800 leading-relaxed">
+                <p className="text-sm text-dark-900 leading-relaxed">
                   {adv.description}
                 </p>
               </div>

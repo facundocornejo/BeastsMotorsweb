@@ -30,7 +30,7 @@ export default function HappySalesCarousel({ sales }: HappySalesCarouselProps) {
               <button
                 type="button"
                 onClick={() => setSelected(sale)}
-                className="w-full text-left bg-white rounded-[var(--radius)] shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
+                className="w-full text-left bg-[var(--white)] rounded-[var(--radius)] shadow-sm overflow-hidden hover:shadow-md transition-shadow cursor-pointer"
               >
                 {sale.images[0] && (
                   <div className="relative w-full h-40">
@@ -62,7 +62,7 @@ export default function HappySalesCarousel({ sales }: HappySalesCarouselProps) {
           onClick={() => setSelected(null)}
         >
           <div
-            className="relative bg-white rounded-[var(--radius)] overflow-hidden max-w-xl w-full shadow-xl"
+            className="relative bg-[var(--white)] rounded-[var(--radius)] overflow-hidden max-w-xl w-full shadow-xl"
             onClick={(e) => e.stopPropagation()}
           >
             {/* Close button */}

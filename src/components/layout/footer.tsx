@@ -2,6 +2,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { Instagram } from "lucide-react";
 
+const DEV_URL = "https://dancing-haupia-4a3510.netlify.app/";
+
 export default function Footer() {
   const year = new Date().getFullYear();
 
@@ -78,17 +80,38 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className="mt-10 pt-6 pb-16 border-t border-white/10 flex items-center justify-between">
+        <div className="mt-10 pt-6 pb-16 border-t border-white/10 flex flex-col gap-3">
+          <div className="flex items-center justify-between flex-wrap gap-2">
+            <p className="text-xs text-gray-400">
+              © {year} Beast Motors. Todos los derechos reservados.
+            </p>
+            <div className="flex items-center gap-4">
+              <Link
+                href="/legal"
+                className="text-xs text-gray-300 underline underline-offset-2 decoration-gray-500 hover:text-white hover:decoration-white transition-colors"
+              >
+                Aviso Legal y Privacidad
+              </Link>
+              <Link
+                href="/admin"
+                className="text-xs text-gray-300 hover:text-white transition-colors"
+                aria-label="Panel de administración"
+              >
+                Administración
+              </Link>
+            </div>
+          </div>
           <p className="text-xs text-gray-400">
-            © {year} Beast Motors. Todos los derechos reservados.
+            Diseño y desarrollo:{" "}
+            <a
+              href={DEV_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-blue-light font-medium hover:text-white transition-colors"
+            >
+              Facundo Cornejo
+            </a>
           </p>
-          <Link
-            href="/admin"
-            className="text-xs text-gray-500 hover:text-gray-300 transition-colors"
-            aria-label="Panel de administración"
-          >
-            Administración
-          </Link>
         </div>
       </div>
     </footer>

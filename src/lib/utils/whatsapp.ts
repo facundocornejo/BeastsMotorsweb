@@ -25,11 +25,11 @@ export function buildWhatsAppLink({
 }
 
 export function buildGeneralWhatsAppLink(): string {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Quisiera consultar sobre los vehiculos disponibles.")}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Quisiera consultar sobre los vehículos disponibles.")}`;
 }
 
 export function buildFinanceWhatsAppLink(): string {
-  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Quiero consultar sobre opciones de financiacion para la compra de un vehiculo.")}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Quiero consultar sobre opciones de financiación para la compra de un vehículo.")}`;
 }
 
 export function buildPlanesWhatsAppLink(): string {
@@ -44,6 +44,29 @@ export function buildGestoriaWhatsAppLink(): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent("Hola! Quiero consultar sobre el servicio de gestoría automotor.")}`;
 }
 
+interface FinanceFormData {
+  entregaInicial: "si" | "no";
+  cuotaMensual: string;
+  reciboSueldo: "si" | "no";
+  garante: "si" | "no";
+  telefono: string;
+  email: string;
+}
+
+export function buildFinanceFormWhatsAppLink(data: FinanceFormData): string {
+  const lines = [
+    "Hola! Quiero consultar sobre financiación. Mis datos:",
+    "",
+    `Entrega inicial: ${data.entregaInicial === "si" ? "Sí" : "No"}`,
+    `Cuota mensual que puedo pagar: $${data.cuotaMensual}`,
+    `Recibo de sueldo: ${data.reciboSueldo === "si" ? "Sí" : "No"}`,
+    `Garante con recibo de sueldo: ${data.garante === "si" ? "Sí" : "No"}`,
+    `Teléfono: ${data.telefono}`,
+    `Email: ${data.email}`,
+  ];
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(lines.join("\n"))}`;
+}
+
 interface SellFormData {
   brand: string;
   model: string;
@@ -56,13 +79,13 @@ interface SellFormData {
 
 export function buildSellWhatsAppLink(data: SellFormData): string {
   const lines = [
-    "Hola! Quiero vender/entregar mi vehiculo:",
+    "Hola! Quiero vender/entregar mi vehículo:",
     "",
     `Marca: ${data.brand}`,
     `Modelo: ${data.model}`,
-    `Ano: ${data.year}`,
+    `Año: ${data.year}`,
     `Km: ${data.mileage}`,
-    `Transmision: ${data.transmission}`,
+    `Transmisión: ${data.transmission}`,
     `Estado: ${data.condition}`,
   ];
 

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Wallet, Zap, Handshake, type LucideIcon } from "lucide-react";
 import { buildPlanesWhatsAppLink } from "@/lib/utils/whatsapp";
+import FinanceForm from "@/components/planes/finance-form";
 
 export const metadata: Metadata = {
   title: "Financiación y Planes de Ahorro — Beast Motors Paraná",
@@ -193,6 +194,22 @@ export default function PlanesPage() {
               </li>
             </ul>
           </div>
+        </div>
+      </section>
+
+      {/* Formulario pre-calificación */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-3">
+              ¿Calificás para financiación?
+            </h2>
+            <p className="text-dark-700">
+              Completá este breve formulario y te contactamos por WhatsApp con
+              las opciones disponibles para vos.
+            </p>
+          </div>
+          <FinanceForm />
         </div>
       </section>
 

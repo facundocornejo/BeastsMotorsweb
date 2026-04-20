@@ -6,10 +6,20 @@ import { catalogImageUrl } from "@/lib/cloudinary/config";
 
 export const revalidate = 60;
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://beastmotors.com.ar";
+
 export const metadata: Metadata = {
   title: "Next Generation — Vehículos Importados",
   description:
     "Haval, Chery, JAC, GWM y más. Vehículos importados de última generación en Paraná, Entre Ríos.",
+  openGraph: {
+    title: "Next Generation — Beast Motors Paraná",
+    description:
+      "Haval, Chery, JAC, GWM y más. Vehículos importados de última generación en Paraná, Entre Ríos.",
+    url: `${SITE_URL}/next-generation`,
+    // TODO: reemplazar con banner OG dedicado cuando esté disponible
+    images: [{ url: `${SITE_URL}/logotransparente.png`, width: 800, height: 800 }],
+  },
 };
 
 export default async function NextGenerationPage() {

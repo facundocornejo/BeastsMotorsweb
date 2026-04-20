@@ -151,7 +151,7 @@ export default function MotoFilters() {
       {/* Mobile toggle */}
       <button
         onClick={() => setMobileOpen(!mobileOpen)}
-        className="md:hidden flex items-center gap-2 px-4 py-2 text-sm font-medium text-dark-600 bg-white border border-gray-200 rounded-[var(--radius-sm)] mb-4"
+        className="md:hidden flex items-center gap-2 px-4 py-2 text-sm font-medium text-dark-600 bg-[var(--white)] border border-gray-200 rounded-[var(--radius-sm)] mb-4"
       >
         <SlidersHorizontal className="w-4 h-4" />
         Filtros
