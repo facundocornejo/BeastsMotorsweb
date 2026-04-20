@@ -9,10 +9,20 @@ import { catalogImageUrl } from "@/lib/cloudinary/config";
 
 export const dynamic = "force-dynamic";
 
+const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://beastmotors.com.ar";
+
 export const metadata: Metadata = {
   title: "Motos Usadas y 0km — Beast Motors Paraná",
   description:
     "Motos usadas y 0km seleccionadas en Paraná, Entre Ríos. Encontrá tu próxima moto con financiación y gestoría propia.",
+  openGraph: {
+    title: "Motos Usadas y 0km — Beast Motors Paraná",
+    description:
+      "Motos usadas y 0km seleccionadas en Paraná, Entre Ríos. Encontrá tu próxima moto con financiación y gestoría propia.",
+    url: `${SITE_URL}/motos`,
+    // TODO: reemplazar con banner OG dedicado cuando esté disponible
+    images: [{ url: `${SITE_URL}/logotransparente.png`, width: 800, height: 800 }],
+  },
 };
 
 interface MotosPageProps {
@@ -60,7 +70,7 @@ export default async function MotosPage({ searchParams }: MotosPageProps) {
           <p className="text-sm font-semibold uppercase tracking-widest text-rose mb-2">
             Beast Motors
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold text-dark-900 mb-4">
+          <h1 className="font-display text-3xl md:text-5xl text-dark-900 mb-4">
             Motos
           </h1>
           <p className="text-dark-700 max-w-2xl mx-auto mb-6">

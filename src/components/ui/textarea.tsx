@@ -23,7 +23,7 @@ const Textarea = forwardRef<HTMLTextAreaElement, TextareaProps>(function Textare
       <textarea
         ref={ref}
         id={textareaId}
-        className={`w-full px-3 py-2 text-sm rounded-[var(--radius-sm)] border border-gray-200 bg-white text-dark-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-mid focus:border-transparent transition-colors resize-y min-h-[80px] ${error ? "border-rose" : ""} ${className}`}
+        className={`w-full px-3 py-2 text-sm rounded-[var(--radius-sm)] border border-gray-200 bg-[var(--white)] text-dark-900 placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-blue-mid focus:border-transparent transition-colors resize-y min-h-[80px] ${error ? "border-rose" : ""} ${className}`}
         {...props}
       />
       {error && <p className="text-xs text-rose">{error}</p>}

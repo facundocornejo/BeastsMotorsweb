@@ -24,14 +24,14 @@ export default function Header() {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <Image
-            src="/logobesatstmotor.png"
+            src="/logotransparente.png"
             alt="Beast Motors"
             width={48}
             height={48}
             className="h-10 w-auto"
             priority
           />
-          <span className="font-display text-xl font-bold text-white">
+          <span className="font-display text-xl text-white">
             Beast Motors
           </span>
         </Link>
@@ -42,7 +42,7 @@ export default function Header() {
             <Link
               key={link.href}
               href={link.href}
-              className="text-sm font-medium text-white/80 hover:text-white transition-colors"
+              className="text-sm font-semibold text-cream hover:text-white hover:underline underline-offset-4 transition-colors"
             >
               {link.label}
             </Link>
@@ -56,7 +56,7 @@ export default function Header() {
             href="https://www.instagram.com/beastmotors.oficial/"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-white/80 hover:text-white transition-colors"
+            className="text-white hover:text-white/80 transition-colors"
             aria-label="Instagram de Beast Motors"
           >
             <Instagram className="w-5 h-5" aria-hidden="true" />

@@ -12,7 +12,10 @@ export function vehicleMetadata(vehicle: Vehicle): Metadata {
     vehicle.year
   );
   const description = `${title} - ${formatPrice(vehicle.price_usd)}. ${vehicle.fuel_type}, ${vehicle.transmission}, ${vehicle.mileage} km. Consultá por WhatsApp.`;
-  const imageUrl = vehicle.images[0]?.url;
+  const rawUrl = vehicle.images[0]?.url;
+  const imageUrl = rawUrl
+    ? rawUrl.replace("/upload/", "/upload/w_1200,h_800,c_fill,q_auto,f_auto/")
+    : undefined;
 
   return {
     title,

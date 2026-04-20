@@ -30,7 +30,7 @@ export default function AdminSidebar() {
   const navContent = (
     <>
       <div className="p-6 border-b border-gray-200">
-        <h2 className="font-display text-lg font-bold text-blue-deep">
+        <h2 className="font-display text-lg text-blue-deep">
           Beast Motors
         </h2>
         <p className="text-xs text-gray-400 mt-1">Panel de administración</p>
@@ -87,7 +87,7 @@ export default function AdminSidebar() {
         >
           {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
         </button>
-        <span className="font-display text-sm font-bold text-blue-deep">Beast Motors</span>
+        <span className="font-display text-sm text-blue-deep">Beast Motors</span>
       </div>
 
       {/* Mobile overlay */}

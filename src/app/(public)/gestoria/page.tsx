@@ -84,7 +84,7 @@ export default function GestoriaPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-blue-light mb-3">
             Beast Motors
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4">
+          <h1 className="font-display text-3xl md:text-5xl mb-4">
             Gestoría Automotor
           </h1>
           <p className="text-blue-100 text-lg max-w-2xl mx-auto">
@@ -99,7 +99,7 @@ export default function GestoriaPage() {
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
+            <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-3">
               Nuestros servicios
             </h2>
             <p className="text-dark-700 max-w-2xl mx-auto">
@@ -131,7 +131,7 @@ export default function GestoriaPage() {
       {/* Advantages */}
       <section className="py-12 md:py-16 bg-cream-soft">
         <div className="max-w-4xl mx-auto px-4">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-8 text-center">
+          <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-8 text-center">
             ¿Por qué hacer la gestoría con nosotros?
           </h2>
 
@@ -139,12 +139,12 @@ export default function GestoriaPage() {
             {ADVANTAGES.map((adv) => (
               <div
                 key={adv.title}
-                className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border-l-4 border-blue-light"
+                className="bg-[var(--white)] rounded-[var(--radius)] p-6 shadow-sm border border-gray-200 border-l-4 border-l-blue-light"
               >
-                <h3 className="font-semibold text-blue-light mb-1">
+                <h3 className="font-bold text-base text-blue-light mb-1">
                   {adv.title}
                 </h3>
-                <p className="text-sm text-dark-800 leading-relaxed">
+                <p className="text-sm text-dark-900 leading-relaxed">
                   {adv.description}
                 </p>
               </div>
@@ -156,7 +156,7 @@ export default function GestoriaPage() {
       {/* CTA */}
       <section className="py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
+          <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-3">
             ¿Necesitás gestionar un trámite?
           </h2>
           <p className="text-dark-700 mb-6">

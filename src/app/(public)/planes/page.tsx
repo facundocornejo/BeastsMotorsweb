@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Wallet, Zap, Handshake, type LucideIcon } from "lucide-react";
 import { buildPlanesWhatsAppLink } from "@/lib/utils/whatsapp";
+import FinanceForm from "@/components/planes/finance-form";
 
 export const metadata: Metadata = {
   title: "Financiación y Planes de Ahorro — Beast Motors Paraná",
@@ -61,7 +62,7 @@ export default function PlanesPage() {
           <p className="text-sm font-semibold uppercase tracking-widest text-blue-light mb-3">
             Beast Motors
           </p>
-          <h1 className="font-display text-3xl md:text-5xl font-bold mb-4">
+          <h1 className="font-display text-3xl md:text-5xl mb-4">
             Financiación y Planes de Ahorro
           </h1>
           <p className="text-blue-100 text-lg max-w-2xl mx-auto">
@@ -76,7 +77,7 @@ export default function PlanesPage() {
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
+            <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-3">
               Financiamos tu compra
             </h2>
             <p className="text-dark-700 max-w-2xl mx-auto">
@@ -128,7 +129,7 @@ export default function PlanesPage() {
       <section className="py-12 md:py-16 bg-cream-soft">
         <div className="max-w-7xl mx-auto px-4">
           <div className="text-center mb-10">
-            <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
+            <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-3">
               Planes de Ahorro
             </h2>
             <p className="text-dark-700 max-w-2xl mx-auto">
@@ -146,7 +147,7 @@ export default function PlanesPage() {
                 key={item.step}
                 className="bg-cream-soft rounded-[var(--radius)] p-6 shadow-sm border border-gray-300 relative"
               >
-                <span className="font-display text-4xl font-bold text-blue-light/15 absolute top-4 right-4">
+                <span className="font-display text-4xl text-blue-light/15 absolute top-4 right-4">
                   {item.step}
                 </span>
                 <h3 className="font-semibold text-blue-light text-lg mb-2">
@@ -196,10 +197,26 @@ export default function PlanesPage() {
         </div>
       </section>
 
+      {/* Formulario pre-calificación */}
+      <section className="py-12 md:py-16">
+        <div className="max-w-xl mx-auto px-4">
+          <div className="text-center mb-8">
+            <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-3">
+              ¿Calificás para financiación?
+            </h2>
+            <p className="text-dark-700">
+              Completá este breve formulario y te contactamos por WhatsApp con
+              las opciones disponibles para vos.
+            </p>
+          </div>
+          <FinanceForm />
+        </div>
+      </section>
+
       {/* CTA */}
       <section className="py-12 md:py-16">
         <div className="max-w-3xl mx-auto px-4 text-center">
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-dark-900 mb-3">
+          <h2 className="font-display text-2xl md:text-3xl text-dark-900 mb-3">
             ¿Querés saber más?
           </h2>
           <p className="text-dark-700 mb-6">

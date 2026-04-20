@@ -43,7 +43,7 @@ export default function AdminLoginPage() {
   return (
     <div className="min-h-screen flex items-center justify-center bg-cream-bg p-4">
       <div className="w-full max-w-sm bg-white rounded-[var(--radius)] shadow-lg p-8">
-        <h1 className="font-display text-2xl font-bold text-blue-deep text-center mb-8">
+        <h1 className="font-display text-2xl text-blue-deep text-center mb-8">
           Beast Motors
         </h1>
 

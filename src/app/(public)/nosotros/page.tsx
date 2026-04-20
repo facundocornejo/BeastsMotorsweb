@@ -13,7 +13,7 @@ export default function NosotrosPage() {
 
   return (
     <div className="max-w-4xl mx-auto px-4 py-12 md:py-16">
-      <h1 className="font-display text-3xl md:text-4xl font-bold text-dark-900 mb-6">
+      <h1 className="font-display text-3xl md:text-4xl text-dark-900 mb-6">
         Sobre Beast Motors
       </h1>
 
