@@ -11,7 +11,9 @@ export default function AdminLayout({
   const pathname = usePathname();
   const isLoginPage = pathname === "/admin/login";
 
-  if (isLoginPage) return <>{children}</>;
+  if (isLoginPage) return (
+    <div className="admin-theme min-h-screen">{children}</div>
+  );
 
   return (
     <div className="admin-theme min-h-screen bg-[#f3f4f6]">
