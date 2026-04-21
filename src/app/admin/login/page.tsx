@@ -37,7 +37,7 @@ export default function AdminLoginPage() {
       return;
     }
 
-    router.push("/admin/vehiculos");
+    window.location.href = "/admin/vehiculos";
   }
 
   return (
