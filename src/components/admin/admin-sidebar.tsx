@@ -24,7 +24,7 @@ export default function AdminSidebar() {
   async function handleLogout() {
     const supabase = createClient();
     await supabase.auth.signOut();
-    router.push("/admin/login");
+    window.location.href = "/admin/login";
   }
 
   const navContent = (
