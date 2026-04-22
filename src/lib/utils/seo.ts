@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import type { Vehicle } from "@/types";
-import { formatPrice, vehicleTitle } from "./format";
+import { formatPrice, formatPriceARS, vehicleTitle } from "./format";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://beastmotors.com.ar";
 
@@ -11,7 +11,8 @@ export function vehicleMetadata(vehicle: Vehicle): Metadata {
     vehicle.version,
     vehicle.year
   );
-  const description = `${title} - ${formatPrice(vehicle.price_usd)}. ${vehicle.fuel_type}, ${vehicle.transmission}, ${vehicle.mileage} km. Consultá por WhatsApp.`;
+  const priceText = vehicle.price_usd != null ? formatPrice(vehicle.price_usd) : vehicle.price_ars != null ? formatPriceARS(vehicle.price_ars) : "";
+  const description = `${title}${priceText ? ` - ${priceText}` : ""}. ${vehicle.fuel_type}, ${vehicle.transmission}, ${vehicle.mileage} km. Consultá por WhatsApp.`;
   const rawUrl = vehicle.images[0]?.url;
   const imageUrl = rawUrl
     ? rawUrl.replace("/upload/", "/upload/w_1200,h_800,c_fill,q_auto,f_auto/")
@@ -54,8 +55,8 @@ export function vehicleJsonLd(vehicle: Vehicle) {
     vehicleTransmission: vehicle.transmission,
     offers: {
       "@type": "Offer",
-      price: vehicle.price_usd,
-      priceCurrency: "USD",
+      price: vehicle.price_usd ?? vehicle.price_ars,
+      priceCurrency: vehicle.price_usd != null ? "USD" : "ARS",
       availability: "https://schema.org/InStock",
       seller: {
         "@type": "AutoDealer",

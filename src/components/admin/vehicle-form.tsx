@@ -51,7 +51,8 @@ export default function VehicleForm({ initialData, onSuccess }: VehicleFormProps
           version: initialData.version || "",
           year: initialData.year,
           mileage: initialData.mileage,
-          price_usd: initialData.price_usd,
+          price_usd: initialData.price_usd ?? undefined,
+          price_ars: initialData.price_ars ?? undefined,
           fuel_type: initialData.fuel_type,
           transmission: initialData.transmission,
           vehicle_type: initialData.vehicle_type,
@@ -174,13 +175,22 @@ export default function VehicleForm({ initialData, onSuccess }: VehicleFormProps
             error={errors.mileage?.message}
           />
 
-          <Input
-            label="Precio (USD)"
-            type="number"
-            step="0.01"
-            {...register("price_usd")}
-            error={errors.price_usd?.message}
-          />
+          <div className="flex flex-col gap-1">
+            <Input
+              label="Precio en dólares (USD) — opcional"
+              type="number"
+              step="0.01"
+              {...register("price_usd")}
+              error={errors.price_usd?.message}
+            />
+            <Input
+              label="Precio en pesos (ARS) — opcional"
+              type="number"
+              {...register("price_ars")}
+              error={errors.price_ars?.message}
+            />
+            <p className="text-xs text-gray-400">Al menos uno de los dos precios es obligatorio</p>
+          </div>
         </div>
 
         {/* Right column */}

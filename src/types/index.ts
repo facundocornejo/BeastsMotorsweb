@@ -12,7 +12,8 @@ export interface Vehicle {
   version: string | null;
   year: number;
   mileage: number;
-  price_usd: number;
+  price_usd: number | null;
+  price_ars: number | null;
   fuel_type: "nafta" | "diesel" | "eléctrico" | "híbrido";
   transmission: "manual" | "automático" | "CVT";
   vehicle_type: "usado" | "0km" | "moto" | "next-gen";

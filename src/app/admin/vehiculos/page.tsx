@@ -154,7 +154,9 @@ export default function AdminVehiclesPage() {
 
                   <div className="flex-1 min-w-0">
                   <p className="font-medium text-dark-900 truncate">{title}</p>
-                  <p className="text-sm text-dark-600">{formatPrice(vehicle.price_usd)}</p>
+                  <p className="text-sm text-dark-600">
+                    {vehicle.price_usd != null ? formatPrice(vehicle.price_usd) : vehicle.price_ars != null ? `$ ${new Intl.NumberFormat("es-AR").format(vehicle.price_ars)}` : "Sin precio"}
+                  </p>
                   <div className="flex gap-1.5 mt-1 flex-wrap">
                     {vehicle.is_sold && <Badge variant="danger">Vendido</Badge>}
                     {vehicle.is_featured && <Badge variant="info">Destacado</Badge>}

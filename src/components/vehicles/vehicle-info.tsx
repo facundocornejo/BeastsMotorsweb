@@ -1,5 +1,5 @@
 import type { Vehicle } from "@/types";
-import { vehicleTitle, formatPrice, formatMileage } from "@/lib/utils/format";
+import { vehicleTitle, formatPrice, formatPriceARS, formatMileage } from "@/lib/utils/format";
 import { buildWhatsAppLink } from "@/lib/utils/whatsapp";
 import WhatsAppButton from "./whatsapp-button";
 
@@ -21,6 +21,7 @@ export default function VehicleInfo({ vehicle }: VehicleInfoProps) {
   const waLink = buildWhatsAppLink({
     vehicleName: title,
     priceUsd: vehicle.price_usd,
+    priceArs: vehicle.price_ars,
     slug: vehicle.slug,
   });
 
@@ -30,9 +31,18 @@ export default function VehicleInfo({ vehicle }: VehicleInfoProps) {
         {title}
       </h1>
 
-      <p className="font-display text-3xl md:text-4xl text-blue-deep mb-6">
-        {formatPrice(vehicle.price_usd)}
-      </p>
+      <div className="mb-6">
+        {vehicle.price_usd != null && (
+          <p className="font-display text-3xl md:text-4xl text-blue-deep leading-tight">
+            {formatPrice(vehicle.price_usd)}
+          </p>
+        )}
+        {vehicle.price_ars != null && (
+          <p className="text-xl md:text-2xl text-dark-600 mt-1">
+            {formatPriceARS(vehicle.price_ars)}
+          </p>
+        )}
+      </div>
 
       {/* Specs grid */}
       <div className="grid grid-cols-2 gap-3 mb-6">

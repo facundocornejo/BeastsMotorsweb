@@ -3,23 +3,31 @@ const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "";
 
 interface WhatsAppLinkParams {
   vehicleName: string;
-  priceUsd: number;
+  priceUsd?: number | null;
+  priceArs?: number | null;
   slug: string;
 }
 
 export function buildWhatsAppLink({
   vehicleName,
   priceUsd,
+  priceArs,
   slug,
 }: WhatsAppLinkParams): string {
   const url = `${SITE_URL}/vehiculos/${slug}`;
-  const price = new Intl.NumberFormat("es-AR", {
-    style: "currency",
-    currency: "USD",
-    maximumFractionDigits: 0,
-  }).format(priceUsd);
 
-  const message = `Hola! Me interesa el ${vehicleName} publicado a ${price}.\n\n${url}`;
+  let priceText = "";
+  if (priceUsd && priceArs) {
+    const usd = new Intl.NumberFormat("es-AR", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(priceUsd);
+    const ars = `$ ${new Intl.NumberFormat("es-AR").format(Math.round(priceArs))}`;
+    priceText = `${usd} (${ars} en pesos)`;
+  } else if (priceUsd) {
+    priceText = new Intl.NumberFormat("es-AR", { style: "currency", currency: "USD", maximumFractionDigits: 0 }).format(priceUsd);
+  } else if (priceArs) {
+    priceText = `$ ${new Intl.NumberFormat("es-AR").format(Math.round(priceArs))}`;
+  }
+
+  const message = `Hola! Me interesa el ${vehicleName}${priceText ? ` publicado a ${priceText}` : ""}.\n\n${url}`;
 
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
 }

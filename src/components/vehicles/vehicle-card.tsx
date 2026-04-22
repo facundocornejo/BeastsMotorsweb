@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import type { Vehicle } from "@/types";
-import { vehicleTitle, formatPrice, formatMileage } from "@/lib/utils/format";
+import { vehicleTitle, formatPrice, formatPriceARS, formatMileage } from "@/lib/utils/format";
 import { buildWhatsAppLink } from "@/lib/utils/whatsapp";
 import { catalogImageUrl } from "@/lib/cloudinary/config";
 import WhatsAppButton from "./whatsapp-button";
@@ -25,7 +25,6 @@ const VIEW_LABELS: Record<string, string> = {
 
 export default function VehicleCard({ vehicle, priority = false }: VehicleCardProps) {
   const title = vehicleTitle(vehicle.brand, vehicle.model, vehicle.version, vehicle.year);
-  const price = formatPrice(vehicle.price_usd);
   const firstImage = vehicle.images[0];
   const imageUrl = firstImage?.public_id
     ? catalogImageUrl(firstImage.public_id)
@@ -34,6 +33,7 @@ export default function VehicleCard({ vehicle, priority = false }: VehicleCardPr
   const waLink = buildWhatsAppLink({
     vehicleName: title,
     priceUsd: vehicle.price_usd,
+    priceArs: vehicle.price_ars,
     slug: vehicle.slug,
   });
 
@@ -84,9 +84,18 @@ export default function VehicleCard({ vehicle, priority = false }: VehicleCardPr
           </h3>
         </Link>
 
-        <p className="font-display text-lg text-blue-deep mb-2">
-          {price}
-        </p>
+        <div className="mb-2">
+          {vehicle.price_usd != null && (
+            <p className="font-display text-lg text-blue-deep leading-tight">
+              {formatPrice(vehicle.price_usd)}
+            </p>
+          )}
+          {vehicle.price_ars != null && (
+            <p className="text-sm text-dark-600 leading-tight">
+              {formatPriceARS(vehicle.price_ars)}
+            </p>
+          )}
+        </div>
 
         <div className="flex flex-wrap gap-1.5 mb-3 mt-auto">
           <span className="text-xs text-dark-800 bg-cream px-2 py-0.5 rounded">

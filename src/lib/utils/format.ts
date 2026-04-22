@@ -6,6 +6,10 @@ export function formatPrice(priceUsd: number): string {
   }).format(priceUsd);
 }
 
+export function formatPriceARS(priceArs: number): string {
+  return `$ ${new Intl.NumberFormat("es-AR").format(Math.round(priceArs))}`;
+}
+
 export function formatMileage(km: number): string {
   return `${new Intl.NumberFormat("es-AR").format(km)} km`;
 }
