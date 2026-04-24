@@ -145,6 +145,10 @@ export default function ImageUploader({
         </button>
       </div>
 
+      <p className="text-xs text-gray-400">
+        Usá fotos horizontales (relación 4:3, ej: 1200×900px). La foto se recorta automáticamente al cuadro.
+      </p>
+
       <input
         ref={fileInputRef}
         type="file"
