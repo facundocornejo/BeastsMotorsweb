@@ -16,6 +16,32 @@ import AboutSection from "@/components/home/about-section";
 
 export const revalidate = 60;
 
+const LOCAL_BUSINESS_SCHEMA = {
+  "@context": "https://schema.org",
+  "@type": ["AutoDealer", "LocalBusiness"],
+  name: "Beast Motors",
+  url: "https://beastmotors.com.ar",
+  image: "https://beastmotors.com.ar/og-default.jpg",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Av. Circunvalación José Hernández 2718",
+    addressLocality: "Paraná",
+    addressRegion: "Entre Ríos",
+    postalCode: "E3100",
+    addressCountry: "AR",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: -31.748742,
+    longitude: -60.482740,
+  },
+  priceRange: "$$",
+  areaServed: {
+    "@type": "City",
+    name: "Paraná",
+  },
+};
+
 export default async function HomePage() {
   const [featured, newArrivals, allVehicles, happySales] = await Promise.all([
     getFeaturedVehicles(),
@@ -32,6 +58,10 @@ export default async function HomePage() {
 
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
+      />
       {preloadUrl && (
         <link
           rel="preload"

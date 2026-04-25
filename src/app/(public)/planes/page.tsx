@@ -7,6 +7,13 @@ export const metadata: Metadata = {
   title: "Financiación y Planes de Ahorro — Beast Motors Paraná",
   description:
     "Financiá tu vehículo con las mejores opciones de crédito y planes de ahorro automotor. Beast Motors, concesionaria en Paraná, Entre Ríos.",
+  openGraph: {
+    title: "Financiación y Planes de Ahorro | Beast Motors",
+    description:
+      "Financiá tu vehículo con las mejores opciones de crédito y planes de ahorro automotor. Beast Motors, concesionaria en Paraná, Entre Ríos.",
+    url: "/planes",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "Financiación Beast Motors" }],
+  },
 };
 
 const FINANCE_BENEFITS: { icon: LucideIcon; title: string; description: string }[] = [

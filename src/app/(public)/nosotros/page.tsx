@@ -5,6 +5,13 @@ export const metadata: Metadata = {
   title: "Nosotros",
   description:
     "Beast Motors — Concesionaria multimarca en Paraná, Entre Ríos. Compra, venta y consignación de autos usados seleccionados, camionetas y vehículos 0km.",
+  openGraph: {
+    title: "Nosotros | Beast Motors",
+    description:
+      "Concesionaria multimarca en Paraná, Entre Ríos. Compra, venta y consignación de autos usados seleccionados, camionetas y vehículos 0km.",
+    url: "/nosotros",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "Beast Motors Paraná" }],
+  },
 };
 
 export default function NosotrosPage() {

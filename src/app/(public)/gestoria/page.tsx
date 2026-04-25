@@ -14,6 +14,13 @@ export const metadata: Metadata = {
   title: "Gestoría Automotor — Beast Motors Paraná",
   description:
     "Gestoría automotor propia en Paraná, Entre Ríos. Transferencias, informes de dominio, radicaciones y más. Sin intermediarios.",
+  openGraph: {
+    title: "Gestoría Automotor | Beast Motors",
+    description:
+      "Gestoría automotor propia en Paraná, Entre Ríos. Transferencias, informes de dominio, radicaciones y más. Sin intermediarios.",
+    url: "/gestoria",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "Gestoría Beast Motors" }],
+  },
 };
 
 const SERVICES: { icon: LucideIcon; title: string; description: string }[] = [

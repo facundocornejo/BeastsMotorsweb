@@ -9,9 +9,16 @@ import type { Metadata } from "next";
 export const dynamic = "force-dynamic";
 
 export const metadata: Metadata = {
-  title: "Vehículos",
+  title: "Catálogo de Vehículos",
   description:
     "Explorá nuestro catálogo de autos usados, 0km, motos y vehículos importados en Paraná, Entre Ríos.",
+  openGraph: {
+    title: "Catálogo de Vehículos | Beast Motors",
+    description:
+      "Autos usados, 0km, motos y vehículos importados en Paraná. Toyota, Chevrolet, Ford, Volkswagen y más. Consultá por WhatsApp.",
+    url: "/vehiculos",
+    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "Catálogo Beast Motors" }],
+  },
 };
 
 interface CatalogPageProps {
