@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Anton } from "next/font/google";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
@@ -28,6 +28,13 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  themeColor: "#11789B",
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -43,7 +50,6 @@ export default function RootLayout({
         />
         <link rel="dns-prefetch" href="https://res.cloudinary.com" />
         <link rel="preconnect" href="https://res.cloudinary.com" crossOrigin="anonymous" />
-        <meta name="theme-color" content="#11789B" />
       </head>
       <body
         className={`${GeistSans.variable} ${GeistMono.variable} ${anton.variable} font-sans antialiased`}

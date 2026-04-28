@@ -91,6 +91,7 @@ body {
   color: var(--dark-900);
   font-family: var(--font-sans), system-ui, sans-serif;
   transition: background-color 0.2s, color 0.2s;
+  overflow-x: hidden;
 }
 
 /* Admin theme — light override para todo el panel admin */

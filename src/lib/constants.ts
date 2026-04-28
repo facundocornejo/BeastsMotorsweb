@@ -1,6 +1,6 @@
 export const VEHICLE_TYPES = [
-  { value: "usado", label: "Usado" },
-  { value: "0km", label: "0 Km" },
+  { value: "usado", label: "Auto Usado" },
+  { value: "0km", label: "Auto 0 Km" },
   { value: "moto", label: "Moto" },
   { value: "next-gen", label: "Next Generation" },
 ] as const;
