@@ -86,12 +86,20 @@
   --gray-100: #E4EAED;
 }
 
+html {
+  overflow-x: hidden;
+  width: 100%;
+}
+
 body {
   background-color: var(--cream-bg);
   color: var(--dark-900);
   font-family: var(--font-sans), system-ui, sans-serif;
   transition: background-color 0.2s, color 0.2s;
   overflow-x: hidden;
+  width: 100%;
+  max-width: 100vw;
+  position: relative;
 }
 
 /* Admin theme — light override para todo el panel admin */
