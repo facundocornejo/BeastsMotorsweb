@@ -202,6 +202,9 @@ export default function VehicleForm({ initialData, onSuccess }: VehicleFormProps
             error={errors.vehicle_type?.message}
             placeholder="Seleccionar tipo"
           />
+          <p className="text-xs text-gray-500 -mt-2">
+            Para motos (0km o usadas) elegí <strong>Moto</strong>. La condición 0km/usada se determina por el kilometraje (0 = 0km).
+          </p>
 
           <Select
             label="Combustible"
