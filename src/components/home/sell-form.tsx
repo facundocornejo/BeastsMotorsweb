@@ -49,7 +49,6 @@ function validateMileage(v: string): string | null {
 type ErrorFields = "brand" | "model" | "year" | "mileage";
 
 export default function SellForm() {
-  const [open, setOpen] = useState(false);
   const [brand, setBrand] = useState("");
   const [model, setModel] = useState("");
   const [year, setYear] = useState("");
@@ -103,18 +102,6 @@ export default function SellForm() {
     });
 
     window.open(link, "_blank", "noopener,noreferrer");
-  }
-
-  if (!open) {
-    return (
-      <button
-        onClick={() => setOpen(true)}
-        className="inline-flex items-center gap-2 bg-rose text-white font-medium px-6 py-3 rounded-[var(--radius-sm)] hover:bg-rose-dark transition-colors"
-      >
-        <span className="w-2 h-2 rounded-full bg-green-wa" />
-        Quiero vender mi auto
-      </button>
-    );
   }
 
   return (
@@ -226,13 +213,10 @@ export default function SellForm() {
           </span>
         </label>
 
-        <div className="flex gap-3 mt-1">
-          <Button type="submit" disabled={!isValid} className="flex-1">
+        <div className="mt-1">
+          <Button type="submit" disabled={!isValid} className="w-full">
             <span className="w-2 h-2 rounded-full bg-green-wa" />
             Enviar por WhatsApp
-          </Button>
-          <Button type="button" variant="secondary" onClick={() => setOpen(false)}>
-            Cancelar
           </Button>
         </div>
       </div>

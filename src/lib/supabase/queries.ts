@@ -11,7 +11,11 @@ export async function getAvailableVehicles(
     .select("*")
     .eq("is_sold", false);
 
-  if (filters?.type) query = query.eq("vehicle_type", filters.type);
+  if (filters?.type === "0km") {
+    query = query.in("vehicle_type", ["0km", "next-gen"]);
+  } else if (filters?.type) {
+    query = query.eq("vehicle_type", filters.type);
+  }
   if (filters?.brand) query = query.eq("brand", filters.brand);
   if (filters?.min_price) query = query.gte("price_usd", filters.min_price);
   if (filters?.max_price) query = query.lte("price_usd", filters.max_price);
@@ -105,4 +109,13 @@ export async function getHappySales(): Promise<HappySale[]> {
     .select("*")
     .order("created_at", { ascending: false });
   return (data as HappySale[]) || [];
+}
+
+export async function getAvailableStockCount(): Promise<number> {
+  const supabase = await createClient();
+  const { count } = await supabase
+    .from("vehicles")
+    .select("*", { count: "exact", head: true })
+    .eq("is_sold", false);
+  return count ?? 0;
 }

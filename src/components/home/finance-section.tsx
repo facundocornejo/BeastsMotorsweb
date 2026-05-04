@@ -28,6 +28,8 @@ export default function FinanceSection() {
                   href={waLink}
                   target="_blank"
                   rel="noopener noreferrer"
+                  data-cta-section="financiacion"
+                  data-cta-label="whatsapp"
                   className="inline-flex items-center gap-2 bg-blue-deep text-white font-medium px-6 py-3 rounded-[var(--radius-sm)] hover:bg-blue-mid transition-colors"
                 >
                   <span className="w-2 h-2 rounded-full bg-green-wa" />
@@ -35,6 +37,8 @@ export default function FinanceSection() {
                 </a>
                 <button
                   onClick={() => setShowForm(true)}
+                  data-cta-section="financiacion"
+                  data-cta-label="pre_calificar"
                   className="inline-flex items-center gap-2 bg-rose text-white font-medium px-6 py-3 rounded-[var(--radius-sm)] hover:bg-rose-dark transition-colors"
                 >
                   Quiero pre-calificarme
@@ -42,6 +46,8 @@ export default function FinanceSection() {
               </div>
               <Link
                 href="/planes"
+                data-cta-section="financiacion"
+                data-cta-label="ver_planes"
                 className="text-sm font-medium text-blue-deep hover:text-blue-mid transition-colors"
               >
                 Conocé nuestros planes →

@@ -28,6 +28,8 @@ export default function AboutSection() {
                     href={appointmentLink}
                     target="_blank"
                     rel="noopener noreferrer"
+                    data-cta-section="nosotros"
+                    data-cta-label="agendar_cita"
                     className="font-medium text-rose hover:text-rose-dark transition-colors"
                   >
                     Agendá una cita previa →

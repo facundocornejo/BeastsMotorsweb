@@ -102,6 +102,36 @@ body {
   position: relative;
 }
 
+/* Trust strip marquee animation */
+@keyframes trust-marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.trust-marquee-track {
+  animation: trust-marquee 35s linear infinite;
+  will-change: transform;
+}
+
+.trust-marquee:hover .trust-marquee-track {
+  animation-play-state: paused;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .trust-marquee-track {
+    animation: none;
+  }
+}
+
+/* Hide floating WhatsApp button on mobile when sticky CTA bar is visible */
+@media (max-width: 767px) {
+  body[data-sticky-cta="visible"] [data-wa-float] {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s;
+  }
+}
+
 /* Admin theme — light override para todo el panel admin */
 .admin-theme {
   --cream-bg: #f3f4f6;
