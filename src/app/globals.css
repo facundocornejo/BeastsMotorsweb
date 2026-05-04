@@ -102,6 +102,15 @@ body {
   position: relative;
 }
 
+/* Logo outline for header — white halo so red "MOTORS" reads against the rose background */
+.logo-outline {
+  filter:
+    drop-shadow(1px 0 0 #ffffff)
+    drop-shadow(-1px 0 0 #ffffff)
+    drop-shadow(0 1px 0 #ffffff)
+    drop-shadow(0 -1px 0 #ffffff);
+}
+
 /* Trust strip marquee animation — 4 copies of content, translate -25% loops one copy seamlessly */
 @keyframes trust-marquee {
   from { transform: translateX(0); }

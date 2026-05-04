@@ -28,7 +28,7 @@ export default function Header() {
             alt="Beast Motors"
             width={48}
             height={48}
-            className="h-10 w-auto"
+            className="h-10 w-auto logo-outline"
             priority
           />
           <span className="font-display text-xl text-white">
