@@ -10,6 +10,7 @@ export default function WhatsAppFloat() {
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => trackWhatsAppClick()}
+      data-wa-float
       className="fixed bottom-6 right-6 z-40 w-14 h-14 bg-green-wa rounded-full flex items-center justify-center shadow-lg hover:scale-110 transition-transform"
       aria-label="Contactar por WhatsApp"
     >
