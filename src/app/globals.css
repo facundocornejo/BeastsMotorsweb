@@ -102,10 +102,10 @@ body {
   position: relative;
 }
 
-/* Trust strip marquee animation */
+/* Trust strip marquee animation — 4 copies of content, translate -25% loops one copy seamlessly */
 @keyframes trust-marquee {
   from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  to { transform: translateX(-25%); }
 }
 
 .trust-marquee-track {

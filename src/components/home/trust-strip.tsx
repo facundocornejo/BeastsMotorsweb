@@ -78,7 +78,7 @@ export default function TrustStrip() {
         <div className="pointer-events-none absolute inset-y-0 right-0 w-12 md:w-24 bg-gradient-to-l from-[var(--cream-soft)] to-transparent z-10" aria-hidden="true" />
 
         <div className="trust-marquee-track flex items-center gap-6 md:gap-10 w-max">
-          {[...TRUST_SIGNALS, ...TRUST_SIGNALS].map((signal, i) => (
+          {[...TRUST_SIGNALS, ...TRUST_SIGNALS, ...TRUST_SIGNALS, ...TRUST_SIGNALS].map((signal, i) => (
             <span key={i} className="flex items-center gap-6 md:gap-10">
               <Item label={signal.label} icon={signal.icon} />
               <Divider />
