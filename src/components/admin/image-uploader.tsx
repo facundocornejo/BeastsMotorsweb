@@ -190,14 +190,14 @@ export default function ImageUploader({
               className="w-full h-full object-cover"
             />
             {index === 0 ? (
-              <span className="absolute top-1 left-1 bg-blue-deep text-white text-[10px] font-semibold px-1.5 py-0.5 rounded">
+              <span className="absolute top-1 left-1 bg-blue-deep text-white text-2xs font-semibold px-1.5 py-0.5 rounded">
                 Portada
               </span>
             ) : (
               <button
                 type="button"
                 onClick={() => handleSetCover(index)}
-                className="absolute top-1 left-1 bg-black/50 hover:bg-blue-deep text-white text-[10px] font-semibold px-1.5 py-0.5 rounded sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
+                className="absolute top-1 left-1 bg-black/50 hover:bg-blue-deep text-white text-2xs font-semibold px-1.5 py-0.5 rounded sm:opacity-0 sm:group-hover:opacity-100 transition-opacity"
               >
                 Portada
               </button>

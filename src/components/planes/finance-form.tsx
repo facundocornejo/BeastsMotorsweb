@@ -45,7 +45,7 @@ function RadioGroup({ label, name, value, onChange }: RadioGroupProps) {
             className={`flex items-center gap-2 cursor-pointer px-4 py-2 rounded-[var(--radius-sm)] border text-sm font-medium transition-colors select-none ${
               value === opt
                 ? "bg-blue-deep text-white border-blue-deep"
-                : "bg-white text-dark-700 border-gray-200 hover:border-blue-mid"
+                : "bg-[var(--white)] text-dark-700 border-gray-200 hover:border-blue-mid"
             }`}
           >
             <input

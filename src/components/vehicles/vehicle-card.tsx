@@ -59,17 +59,17 @@ export default function VehicleCard({ vehicle, priority = false }: VehicleCardPr
         {/* Badges */}
         <div className="absolute top-2 left-2 flex gap-1.5">
           {TYPE_LABELS[vehicle.vehicle_type] && (
-            <span className="bg-blue-deep text-white text-[10px] font-semibold uppercase px-2 py-0.5 rounded">
+            <span className="bg-blue-deep text-white text-2xs font-semibold uppercase px-2 py-0.5 rounded">
               {TYPE_LABELS[vehicle.vehicle_type]}
             </span>
           )}
           {vehicle.is_new_arrival && (
-            <span className="bg-green-wa text-dark-900 text-[10px] font-semibold uppercase px-2 py-0.5 rounded">
+            <span className="bg-green-wa text-dark-900 text-2xs font-semibold uppercase px-2 py-0.5 rounded">
               Nuevo
             </span>
           )}
           {vehicle.is_featured && (
-            <span className="bg-rose text-white text-[10px] font-semibold uppercase px-2 py-0.5 rounded">
+            <span className="bg-rose text-white text-2xs font-semibold uppercase px-2 py-0.5 rounded">
               Destacado
             </span>
           )}
