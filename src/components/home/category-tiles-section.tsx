@@ -77,7 +77,7 @@ export default function CategoryTilesSection({ stockCount }: CategoryTilesSectio
         {/* Section header — editorial style */}
         <div className="mb-10 md:mb-14 flex items-end justify-between gap-4">
           <div>
-            <p className="font-mono text-[10px] md:text-xs text-[var(--rose)] tracking-[0.3em] uppercase mb-2 md:mb-3">
+            <p className="font-mono text-2xs md:text-xs text-[var(--rose)] tracking-[0.3em] uppercase mb-2 md:mb-3">
               — Categorías
             </p>
             <h2 className="font-display text-3xl md:text-5xl lg:text-6xl text-[var(--dark-900)] leading-[0.95]">
@@ -116,7 +116,7 @@ export default function CategoryTilesSection({ stockCount }: CategoryTilesSectio
               />
 
               {/* Number */}
-              <div className="relative font-mono text-[10px] md:text-xs text-[var(--dark-600)] tracking-[0.25em] mb-1.5 md:mb-2">
+              <div className="relative font-mono text-2xs md:text-xs text-[var(--dark-600)] tracking-[0.25em] mb-1.5 md:mb-2">
                 {cat.number}
               </div>
 
