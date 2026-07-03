@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Instagram } from "lucide-react";
 
-const DEV_URL = "https://dancing-haupia-4a3510.netlify.app/";
+const DEV_URL = "https://fromdevdiego.com/";
 
 export default function Footer() {
   const year = new Date().getFullYear();

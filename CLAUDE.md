@@ -1,6 +1,87 @@
 # CLAUDE.md — Beast Motors Dealership Website
 
+# Memoria persistente con Engram (MCP)
 
+Tenés acceso a Engram como servidor MCP. Engram es memoria persistente basada en SQLite + FTS5, accesible vía herramientas MCP (`mem_save`, `mem_search`, `mem_context`, `mem_session_summary`, entre otras). Usala con criterio: el objetivo es no perder contexto entre sesiones, no llenar la base de ruido.
+
+## Al iniciar cada sesión
+
+Antes de responder al primer pedido sustantivo del usuario:
+
+1. Identificá el proyecto activo (path del workspace, nombre del repo, o el que mencione el usuario).
+2. Llamá a Engram para recuperar contexto relevante: arquitectura, decisiones previas, bugs conocidos, convenciones, comandos útiles, estado actual.
+3. Resumí en 3-6 bullets qué recuperaste antes de avanzar con la tarea. Si no hay memorias para ese proyecto, decilo explícitamente y seguí.
+
+Después de una compactación de contexto o reset de sesión, repetí este paso antes de continuar trabajo en curso.
+
+## Durante el trabajo
+
+Guardá una memoria nueva cuando ocurra alguno de estos eventos:
+
+- Decisión de arquitectura o de stack (y el porqué).
+- Bug no trivial resuelto (causa raíz + solución, no solo el síntoma).
+- Comando del proyecto que no es obvio (scripts, flags, entornos).
+- Configuración de entorno que costó hacer funcionar (paths de Windows, Git Bash, MINGW64, variables, MCPs).
+- Convención técnica del repo (naming, estructura de carpetas, estilo de commits, patrones).
+- Problema recurrente y su workaround.
+- Cambio estructural relevante (migración, refactor grande, cambio de librería).
+- Trampas conocidas: cosas que parecen funcionar pero rompen algo más adelante.
+
+No guardes:
+
+- Tareas triviales o de un solo uso.
+- Contenido que ya está en el código o en el README (memoria duplicada es ruido).
+- Estados intermedios de debugging que ya quedaron resueltos.
+- Opiniones del usuario sobre temas no técnicos.
+
+Nunca guardes:
+
+- Secretos, tokens, API keys, credenciales, contraseñas.
+- Contenido de archivos `.env`, `.env.local` o similares.
+- Datos personales sensibles del usuario o de terceros.
+- Rutas absolutas que expongan estructura privada del sistema si no es necesario para reproducir el problema.
+
+Si detectás que una memoria que vas a guardar incluye alguno de estos, redactala omitiendo el valor sensible (ej: "usa variable `DATABASE_URL` desde `.env`" en lugar de pegar la URL).
+
+## Formato de cada memoria
+
+Título: corto, descriptivo, con el proyecto adelante si aplica.
+Formato sugerido: `[Proyecto] Tema breve` — ej: `[EntreRioDesarrollo] Setup Git Bash + MCP Engram`.
+
+Cuerpo (markdown, en este orden, omitiendo lo que no aplique):
+
+- **Proyecto:** nombre y path si es relevante.
+- **Contexto:** una línea sobre cuándo aplica.
+- **Problema o decisión:** qué se enfrentaba.
+- **Causa:** por qué pasaba (si era un bug).
+- **Solución:** qué se hizo, con comandos o snippets clave.
+- **Archivos / áreas afectadas:** rutas relativas.
+- **Advertencias:** qué evitar en el futuro, qué romper esto puede causar.
+
+Mantené las memorias densas pero breves. Si una memoria pasa de ~30 líneas, probablemente sean varias memorias separadas.
+
+## Búsqueda
+
+Cuando busques antes de actuar:
+
+- Probá varios términos: nombre del proyecto, tecnología, síntoma del error, nombre del archivo.
+- Si la primera búsqueda no devuelve nada útil, reformulá con sinónimos antes de asumir que no hay contexto.
+- No confíes ciegamente en lo recuperado: si una memoria contradice lo que ves en el código actual, priorizá el código y actualizá la memoria.
+
+## Al cerrar tarea importante
+
+Si resolviste algo no trivial, antes de dar por cerrada la respuesta:
+
+1. Decidí si amerita memoria según los criterios de arriba.
+2. Si sí, guardala con el formato indicado.
+3. Mencionale al usuario, en una línea, qué memoria guardaste (título), para que sepa qué quedó persistido.
+
+## Convenciones de entorno
+
+- SO: Windows nativo, Claude Code corre vía Git Bash / MINGW64.
+- Workspace principal: `B:\EntreRioDesarrollo`.
+- Engram está montado como MCP; las herramientas aparecen con prefijo `mem_*`.
+- Inspección manual disponible desde terminal: `engram search`, `engram tui`, `engram stats`.
 Orquestación del Flujo de Trabajo
 1. Modo Planificación por Defecto
 Entra en modo planificación para CUALQUIER tarea no trivial (más de 3 pasos o decisiones arquitectónicas)
