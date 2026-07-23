@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import {
   ArrowLeftRight,
   ShieldCheck,
@@ -9,19 +8,14 @@ import {
   type LucideIcon,
 } from "lucide-react";
 import { buildGestoriaWhatsAppLink } from "@/lib/utils/whatsapp";
+import { pageMetadata } from "@/lib/utils/seo";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Gestoría Automotor — Beast Motors Paraná",
   description:
     "Gestoría automotor propia en Paraná, Entre Ríos. Transferencias, informes de dominio, radicaciones y más. Sin intermediarios.",
-  openGraph: {
-    title: "Gestoría Automotor | Beast Motors",
-    description:
-      "Gestoría automotor propia en Paraná, Entre Ríos. Transferencias, informes de dominio, radicaciones y más. Sin intermediarios.",
-    url: "/gestoria",
-    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "Gestoría Beast Motors" }],
-  },
-};
+  path: "/gestoria",
+});
 
 const SERVICES: { icon: LucideIcon; title: string; description: string }[] = [
   {

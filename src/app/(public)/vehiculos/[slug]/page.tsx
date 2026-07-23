@@ -1,7 +1,9 @@
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { getVehicleBySlug, getRelatedVehicles } from "@/lib/supabase/queries";
-import { vehicleMetadata, vehicleJsonLd } from "@/lib/utils/seo";
+import { vehicleMetadata, vehicleJsonLd, breadcrumbJsonLd } from "@/lib/utils/seo";
+import JsonLd from "@/components/seo/json-ld";
 import VehicleGallery from "@/components/vehicles/vehicle-gallery";
 import VehicleInfo from "@/components/vehicles/vehicle-info";
 import VehicleGrid from "@/components/vehicles/vehicle-grid";
@@ -33,17 +35,43 @@ export default async function VehicleDetailPage({
 
   const related = await getRelatedVehicles(vehicle);
   const title = vehicleTitle(vehicle.brand, vehicle.model, vehicle.version, vehicle.year);
-  const jsonLd = vehicleJsonLd(vehicle);
+  const isMoto = vehicle.vehicle_type === "moto";
+  const catalog = isMoto
+    ? { name: "Motos", path: "/motos" }
+    : { name: "Vehículos", path: "/vehiculos" };
+  const breadcrumbs = [
+    { name: "Inicio", path: "/" },
+    catalog,
+    { name: title },
+  ];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <JsonLd data={vehicleJsonLd(vehicle)} />
+      <JsonLd data={breadcrumbJsonLd(breadcrumbs)} />
       <VehicleViewTracker vehicleName={title} vehicleType={vehicle.vehicle_type} />
 
       <div className="max-w-7xl mx-auto px-4 py-8">
+        <nav aria-label="Ruta de navegación" className="mb-4 text-sm text-dark-600">
+          <ol className="flex flex-wrap items-center gap-1.5">
+            <li>
+              <Link href="/" className="hover:text-blue-light transition-colors">
+                Inicio
+              </Link>
+            </li>
+            <li aria-hidden="true">›</li>
+            <li>
+              <Link href={catalog.path} className="hover:text-blue-light transition-colors">
+                {catalog.name}
+              </Link>
+            </li>
+            <li aria-hidden="true">›</li>
+            <li aria-current="page" className="text-dark-900 font-medium truncate max-w-[60vw] md:max-w-none">
+              {title}
+            </li>
+          </ol>
+        </nav>
+
         <div className="md:flex gap-8">
           {/* Gallery */}
           <div className="md:w-3/5 mb-6 md:mb-0">

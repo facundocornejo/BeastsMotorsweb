@@ -1,29 +1,21 @@
 import { Suspense } from "react";
-import type { Metadata } from "next";
 import { getAvailableVehicles } from "@/lib/supabase/queries";
 import type { VehicleFilters } from "@/types";
 import VehicleGrid from "@/components/vehicles/vehicle-grid";
 import MotoFilters from "@/components/vehicles/moto-filters";
 import { buildGeneralWhatsAppLink } from "@/lib/utils/whatsapp";
 import { catalogImageUrl } from "@/lib/cloudinary/config";
+import { pageMetadata } from "@/lib/utils/seo";
 
 export const dynamic = "force-dynamic";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://beastmotors.com.ar";
-
-export const metadata: Metadata = {
+// TODO: reemplazar og-default con banner OG dedicado de motos cuando esté disponible
+export const metadata = pageMetadata({
   title: "Motos Usadas y 0km — Beast Motors Paraná",
   description:
     "Motos usadas y 0km seleccionadas en Paraná, Entre Ríos. Encontrá tu próxima moto con financiación y gestoría propia.",
-  openGraph: {
-    title: "Motos Usadas y 0km — Beast Motors Paraná",
-    description:
-      "Motos usadas y 0km seleccionadas en Paraná, Entre Ríos. Encontrá tu próxima moto con financiación y gestoría propia.",
-    url: `${SITE_URL}/motos`,
-    // TODO: reemplazar con banner OG dedicado cuando esté disponible
-    images: [{ url: `${SITE_URL}/logotransparente.png`, width: 800, height: 800 }],
-  },
-};
+  path: "/motos",
+});
 
 interface MotosPageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;

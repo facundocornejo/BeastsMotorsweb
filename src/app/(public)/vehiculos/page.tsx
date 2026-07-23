@@ -4,22 +4,16 @@ import type { VehicleFilters } from "@/types";
 import VehicleGrid from "@/components/vehicles/vehicle-grid";
 import VehicleFiltersComponent from "@/components/vehicles/vehicle-filters";
 import { catalogImageUrl } from "@/lib/cloudinary/config";
-import type { Metadata } from "next";
+import { pageMetadata } from "@/lib/utils/seo";
 
 export const dynamic = "force-dynamic";
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: "Catálogo de Vehículos",
   description:
-    "Explorá nuestro catálogo de autos usados, 0km, motos y vehículos importados en Paraná, Entre Ríos.",
-  openGraph: {
-    title: "Catálogo de Vehículos | Beast Motors",
-    description:
-      "Autos usados, 0km, motos y vehículos importados en Paraná. Toyota, Chevrolet, Ford, Volkswagen y más. Consultá por WhatsApp.",
-    url: "/vehiculos",
-    images: [{ url: "/og-default.jpg", width: 1200, height: 630, alt: "Catálogo Beast Motors" }],
-  },
-};
+    "Explorá nuestro catálogo de autos usados, 0km, motos y vehículos importados en Paraná, Entre Ríos. Toyota, Chevrolet, Ford, Volkswagen y más.",
+  path: "/vehiculos",
+});
 
 interface CatalogPageProps {
   searchParams: Promise<{ [key: string]: string | undefined }>;

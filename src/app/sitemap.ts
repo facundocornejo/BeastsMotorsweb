@@ -13,7 +13,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const vehicleEntries: MetadataRoute.Sitemap = (vehicles || []).map((v) => ({
     url: `${SITE_URL}/vehiculos/${v.slug}`,
     lastModified: v.updated_at,
-    changeFrequency: "daily",
+    changeFrequency: "weekly",
     priority: 0.8,
   }));
 
@@ -43,17 +43,20 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       priority: 0.8,
     },
     {
-      url: `${SITE_URL}/planes`,
+      url: `${SITE_URL}/financiacion`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/gestoria`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.6,
     },
     {
       url: `${SITE_URL}/nosotros`,
+      lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.5,
     },
