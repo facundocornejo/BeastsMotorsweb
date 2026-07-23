@@ -1,4 +1,6 @@
+import Link from "next/link";
 import HeroSearch from "./hero-search";
+import PaymentLogos, { CARD_FINANCING_PARTNERS } from "@/components/ui/payment-logos";
 
 interface HeroSectionProps {
   stockCount: number;
@@ -28,6 +30,21 @@ export default function HeroSection({ stockCount }: HeroSectionProps) {
         <div className="flex justify-center">
           <HeroSearch />
         </div>
+        <Link
+          href="/financiacion"
+          data-cta-section="hero"
+          data-cta-label="financiacion"
+          className="group inline-block mt-10 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white rounded-[var(--radius-sm)]"
+        >
+          <p className="text-sm text-white/80 mb-3">
+            Financiá hasta en <span className="font-semibold text-white">24 cuotas</span> con:
+          </p>
+          <PaymentLogos size="md" partners={CARD_FINANCING_PARTNERS} className="max-w-3xl mx-auto" />
+          <p className="text-sm font-medium text-white/80 mt-3 group-hover:text-white transition-colors">
+            Ver opciones de financiación
+            <span aria-hidden="true" className="inline-block ml-1 transition-transform group-hover:translate-x-0.5">→</span>
+          </p>
+        </Link>
       </div>
     </section>
   );

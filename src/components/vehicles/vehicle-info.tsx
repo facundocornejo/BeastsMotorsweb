@@ -1,7 +1,12 @@
+import Link from "next/link";
 import type { Vehicle } from "@/types";
 import { vehicleTitle, formatPrice, formatPriceARS, formatMileage } from "@/lib/utils/format";
 import { buildWhatsAppLink } from "@/lib/utils/whatsapp";
 import WhatsAppButton from "./whatsapp-button";
+import PaymentLogos, {
+  AUTO_FINANCING_PARTNERS,
+  MOTO_FINANCING_PARTNERS,
+} from "@/components/ui/payment-logos";
 
 interface VehicleInfoProps {
   vehicle: Vehicle;
@@ -13,7 +18,6 @@ const SPEC_ITEMS = (vehicle: Vehicle) => [
   { label: "Combustible", value: vehicle.fuel_type },
   { label: "Transmisión", value: vehicle.transmission },
   { label: "Tipo", value: vehicle.vehicle_type },
-  { label: "Financiación", value: vehicle.financing_available ? "Disponible" : "No disponible" },
 ];
 
 export default function VehicleInfo({ vehicle }: VehicleInfoProps) {
@@ -53,6 +57,27 @@ export default function VehicleInfo({ vehicle }: VehicleInfoProps) {
           </div>
         ))}
       </div>
+
+      {/* Financiación */}
+      {vehicle.financing_available && (
+        <div className="border border-gray-300 border-l-4 border-l-green-wa rounded-[var(--radius-sm)] p-4 mb-6">
+          <p className="text-sm font-semibold text-dark-900 mb-3">
+            Financialo hasta en 24 cuotas
+          </p>
+          <PaymentLogos
+            size="sm"
+            partners={vehicle.vehicle_type === "moto" ? MOTO_FINANCING_PARTNERS : AUTO_FINANCING_PARTNERS}
+            className="justify-start"
+          />
+          <Link
+            href="/financiacion"
+            className="inline-block text-sm font-medium text-blue-light hover:text-blue-mid transition-colors mt-3"
+          >
+            Ver opciones de financiación
+            <span aria-hidden="true" className="ml-1">→</span>
+          </Link>
+        </div>
+      )}
 
       {/* Description */}
       {vehicle.description && (

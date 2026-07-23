@@ -10,7 +10,7 @@ const NAV_LINKS = [
   { href: "/vehiculos", label: "Vehículos" },
   { href: "/motos", label: "Motos" },
   { href: "/next-generation", label: "Next Generation" },
-  { href: "/planes", label: "Planes" },
+  { href: "/financiacion", label: "Financiación" },
   { href: "/gestoria", label: "Gestoría" },
   { href: "/nosotros", label: "Nosotros" },
 ];

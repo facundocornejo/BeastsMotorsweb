@@ -25,6 +25,17 @@ export const metadata: Metadata = {
     type: "website",
     locale: "es_AR",
     siteName: "Beast Motors",
+    images: [
+      {
+        url: "/og-default.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Beast Motors — Concesionaria en Paraná, Entre Ríos",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
   },
 };
 
@@ -41,7 +52,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="es" suppressHydrationWarning>
+    <html lang="es-AR" suppressHydrationWarning>
       <head>
         <script
           dangerouslySetInnerHTML={{

@@ -1,5 +1,6 @@
 import { createClient } from "./server";
 import type { Vehicle, HappySale, VehicleFilters } from "@/types";
+import { sortVehiclesByPrice } from "@/lib/utils/pricing";
 
 export async function getAvailableVehicles(
   filters?: VehicleFilters
@@ -31,10 +32,10 @@ export async function getAvailableVehicles(
 
   switch (filters?.sort) {
     case "price_asc":
-      query = query.order("price_usd", { ascending: true });
-      break;
     case "price_desc":
-      query = query.order("price_usd", { ascending: false });
+      // El orden por precio se hace en JS: hay precios en USD y en ARS
+      // y compararlos requiere convertirlos a una moneda común.
+      query = query.order("created_at", { ascending: false });
       break;
     case "year_desc":
       query = query.order("year", { ascending: false });
@@ -47,7 +48,12 @@ export async function getAvailableVehicles(
   }
 
   const { data } = await query;
-  return (data as Vehicle[]) || [];
+  const vehicles = (data as Vehicle[]) || [];
+
+  if (filters?.sort === "price_asc" || filters?.sort === "price_desc") {
+    return sortVehiclesByPrice(vehicles, filters.sort === "price_asc" ? "asc" : "desc");
+  }
+  return vehicles;
 }
 
 export async function getFeaturedVehicles(): Promise<Vehicle[]> {

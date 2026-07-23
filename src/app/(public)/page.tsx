@@ -5,6 +5,8 @@ import {
   getAvailableStockCount,
 } from "@/lib/supabase/queries";
 import { catalogImageUrl } from "@/lib/cloudinary/config";
+import { pageMetadata, localBusinessJsonLd, webSiteJsonLd } from "@/lib/utils/seo";
+import JsonLd from "@/components/seo/json-ld";
 import HeroSection from "@/components/home/hero-section";
 import TrustStrip from "@/components/home/trust-strip";
 import FeaturedSection from "@/components/home/featured-section";
@@ -18,31 +20,13 @@ import HomepageCtaTracker from "@/components/home/homepage-cta-tracker";
 
 export const revalidate = 60;
 
-const LOCAL_BUSINESS_SCHEMA = {
-  "@context": "https://schema.org",
-  "@type": ["AutoDealer", "LocalBusiness"],
-  name: "Beast Motors",
-  url: "https://beastmotors.com.ar",
-  image: "https://beastmotors.com.ar/og-default.jpg",
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "Av. Circunvalación José Hernández 2718",
-    addressLocality: "Paraná",
-    addressRegion: "Entre Ríos",
-    postalCode: "E3100",
-    addressCountry: "AR",
-  },
-  geo: {
-    "@type": "GeoCoordinates",
-    latitude: -31.748742,
-    longitude: -60.482740,
-  },
-  priceRange: "$$",
-  areaServed: {
-    "@type": "City",
-    name: "Paraná",
-  },
-};
+export const metadata = pageMetadata({
+  title: "Beast Motors — Concesionaria en Paraná, Entre Ríos",
+  description:
+    "Autos usados, 0km, motos y vehículos importados en Paraná, Entre Ríos. Financiación con tarjeta hasta en 24 cuotas. Consultá por WhatsApp.",
+  path: "/",
+  absoluteTitle: true,
+});
 
 export default async function HomePage() {
   const [featured, newArrivals, happySales, stockCount] = await Promise.all([
@@ -60,10 +44,8 @@ export default async function HomePage() {
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(LOCAL_BUSINESS_SCHEMA) }}
-      />
+      <JsonLd data={localBusinessJsonLd()} />
+      <JsonLd data={webSiteJsonLd()} />
       {preloadUrl && (
         <link
           rel="preload"
