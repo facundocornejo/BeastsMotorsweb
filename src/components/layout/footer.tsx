@@ -44,8 +44,8 @@ export default function Footer() {
               <Link href="/next-generation" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Next Generation
               </Link>
-              <Link href="/planes" className="text-sm text-gray-300 hover:text-rose transition-colors">
-                Planes
+              <Link href="/financiacion" className="text-sm text-gray-300 hover:text-rose transition-colors">
+                Financiación
               </Link>
               <Link href="/gestoria" className="text-sm text-gray-300 hover:text-rose transition-colors">
                 Gestoría

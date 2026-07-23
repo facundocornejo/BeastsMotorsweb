@@ -45,7 +45,7 @@ export default function FinanceSection() {
                 </button>
               </div>
               <Link
-                href="/planes"
+                href="/financiacion"
                 data-cta-section="financiacion"
                 data-cta-label="ver_planes"
                 className="text-sm font-medium text-blue-deep hover:text-blue-mid transition-colors"
