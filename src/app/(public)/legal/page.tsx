@@ -23,8 +23,8 @@ export default function LegalPage() {
           </p>
           <p className="text-sm mt-2">
             Contacto:{" "}
-            <a href="https://wa.me/5493436212429" className="text-blue-mid hover:underline">
-              WhatsApp 0343 621-2429
+            <a href="https://wa.me/5493433043030" className="text-blue-mid hover:underline">
+              WhatsApp 0343 304-3030
             </a>
           </p>
         </section>
@@ -73,7 +73,7 @@ export default function LegalPage() {
             suprimir u oponerse al tratamiento de sus datos personales. Para ejercer estos derechos:
           </p>
           <ul className="list-disc list-inside mt-2 space-y-1 text-sm">
-            <li>WhatsApp: <strong>0343 621-2429</strong></li>
+            <li>WhatsApp: <strong>0343 304-3030</strong></li>
             <li>Email: <a href="mailto:oficina.jam@gmail.com" className="text-blue-mid hover:underline">oficina.jam@gmail.com</a></li>
           </ul>
           <p className="text-xs text-gray-400 mt-3 leading-relaxed">

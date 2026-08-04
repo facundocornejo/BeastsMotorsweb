@@ -64,7 +64,7 @@ export default function Footer() {
             <div className="flex flex-col gap-2 text-sm text-gray-300">
               <p>Av. Circunvalación José Hernández 2718</p>
               <p>E3100 Paraná, Entre Ríos</p>
-              <p>Tel: 0343 621-2429</p>
+              <p>Tel: 0343 304-3030</p>
               <p>Lun a Vie 8:00 - 14:00</p>
             </div>
             <a
