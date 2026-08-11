@@ -1,6 +1,7 @@
 declare global {
   interface Window {
     gtag?: (...args: unknown[]) => void;
+    dataLayer?: Record<string, unknown>[];
   }
 }
 
@@ -8,8 +9,12 @@ export function trackEvent(
   action: string,
   params?: Record<string, string | number>
 ) {
-  if (typeof window !== "undefined" && window.gtag) {
+  if (typeof window === "undefined") return;
+  if (window.gtag) {
     window.gtag("event", action, params);
+  } else if (window.dataLayer) {
+    // GTM-only setup: no gtag on the page, push a GTM-style event object
+    window.dataLayer.push({ event: action, ...params });
   }
 }
 
